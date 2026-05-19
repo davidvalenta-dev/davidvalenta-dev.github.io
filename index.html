@@ -3,66 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Valenta | Researcher</title>
-    <!-- This makes the site look professional without you writing any CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+    <title>David Valenta | Researcher & Software Engineer</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        nav ul li { padding: 0 0.5rem; }
+        .contact-header { font-size: 0.9rem; color: var(--pico-muted-color); }
+        .profile-pic {
+            border-radius: 50%;
+            max-width: 200px;
+            display: block;
+            margin: 0 auto 1rem;
+            background-color: var(--pico-muted-color);
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>David Valenta</h1>
-        <p><strong>Researcher in [Your Field Here]</strong></p>
+    <header class="container">
         <nav>
-            <a href="#about">About</a> | 
-            <a href="#publications">Publications</a> | 
-            <a href="#cv">CV</a> | 
-            <a href="#contact">Contact</a>
+            <ul>
+                <li><strong>David Valenta</strong></li>
+            </ul>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills & Honors</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            Hello! I am a researcher focused on <strong>[Topic A]</strong> and <strong>[Topic B]</strong>. 
-            My work currently investigates how [X] affects [Y]. I am passionate about 
-            open science and collaborative research.
-        </p>
-    </section>
+    <main class="container">
+        
+        <section id="about">
+            <div class="grid">
+                <div>
+                    <hgroup>
+                        <h1>David Valenta</h1>
+                        <p>Undergraduate Researcher in Computer Science</p>
+                    </hgroup>
+                    <p class="contact-header">
+                        Charlotte, NC | 
+                        <a href="mailto:david.valenta@outlook.com">david.valenta@outlook.com</a> | 
+                        980.428.3650 | 
+                        U.S. Citizen
+                    </p>
+                    <p>
+                        I am an undergraduate researcher and software engineer focusing on the reliability of large-scale software systems and data-driven computational simulations. Currently pursuing my B.S. in Computer Science at North Carolina State University, I am passionate about utilizing techniques like fuzzing, mutation testing, and program analysis to optimize machine learning frameworks. I also have extensive experience building full-stack applications, data pipelines, and interactive knowledge graphs.
+                    </p>
+                </div>
+                <div>
+                    
+                    <img src="images/dvalent2@ncsu.edu-4145bade.jpg" alt="David Valenta" class="profile-pic" width="200" height="200">
+                </div>
+            </div>
+        </section>
 
-    <section id="publications">
-        <h2>Selected Publications</h2>
-        <ul>
-            <li>
-                <strong>The Title of Your Best Paper</strong>, 2026. <br>
-                <em>Journal of Important Research</em>. 
-                [<a href="#">Link</a>] [<a href="#">PDF</a>]
-            </li>
-            <li>
-                <strong>Another Great Research Project</strong>, 2025. <br>
-                <em>Conference on Innovation</em>. 
-                [<a href="#">Link</a>]
-            </li>
-        </ul>
-    </section>
+        <hr>
 
-    <section id="cv">
-        <h2>Curriculum Vitae</h2>
-        <p>You can download my full academic CV here: 
-            <a href="cv.pdf"><strong>Download CV (PDF)</strong></a>
-        </p>
-    </section>
+        <section id="experience">
+            <h2>Research & Work Experience</h2>
+            
+            <article>
+                <header>
+                    <strong>Incoming NSF REU: Data-Driven Computational Simulations</strong><br>
+                    <small><em>Undergraduate Researcher | Vancouver, Washington | 05/2026-08/2026</em></small>
+                </header>
+            </article>
 
-    <hr>
+            <article>
+                <header>
+                    <strong>Software Engineering (WISER) Lab</strong><br>
+                    <small><em>Undergraduate Researcher | Raleigh, North Carolina | 10/2025-02/2026</em></small>
+                </header>
+                <ul>
+                    <li>Focused on testing the reliability of large-scale software systems at North Carolina State University.</li>
+                    <li>Utilized fuzzing, mutation testing, and program analysis to reproduce and analyze mutator-generated bugs in TensorFlow and PyTorch, focusing on framework behavior under edge cases.</li>
+                    <li>Conducted comparisons of TensorFlow and PyTorch execution differences, identifying inconsistencies in operator behavior, error handling, CPU vs. GPU execution, and model outputs.</li>
+                    <li>Collaborated with Ph.D. researchers to document framework-specific behaviors and experimental findings to support ongoing research.</li>
+                </ul>
+            </article>
 
-    <footer id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:david.valenta@example.edu">david.valenta@example.edu</a></p>
-        <p>
-            <a href="https://scholar.google.com">Google Scholar</a> | 
-            <a href="https://linkedin.com/in/davidvalenta">LinkedIn</a> | 
-            <a href="https://github.com/davidvalenta">GitHub</a>
-        </p>
-    </footer>
+            <article>
+                <header>
+                    <strong>RelationalAI</strong><br>
+                    <small><em>Product Engineer | Remote - Berkeley, California | 05/2025-08/2025</em></small>
+                </header>
+                <ul>
+                    <li>Designed and delivered an API backend for client applications.</li>
+                    <li>Developed a full-stack ArborQuest application leveraging USDA and iNaturalist data, integrating Cortex AI to project plant bloom times and enhance predictive capabilities.</li>
+                    <li>Utilized Snowflake, DBT, SQL, and Python to build and optimize the data pipeline.</li>
+                    <li>Built an interactive Streamlit app and dashboards to enable clients to explore model outputs interactively.</li>
+                    <li>Constructed a knowledge graph from large, multi-source datasets utilizing Louvain community detection, cosine similarity, and Jaccard algorithms to find plant clusters and relationships.</li>
+                    <li>Developed interactive graph visualizations with the InfoMap algorithm to communicate insights.</li>
+                </ul>
+            </article>
+
+            <article>
+                <header>
+                    <strong>USF Engineering Lab</strong><br>
+                    <small><em>Software Engineer Lead | Tampa, Florida | 08/2024-12/2024</em></small>
+                </header>
+                <ul>
+                    <li>Collaborated with a team of four to design and build a fully functional robot from scratch over five months, winning 2nd place.</li>
+                    <li>Programmed the robot's movements and line-following capabilities in C++ using an Arduino Uno microcontroller, two IR sensors, and an ultrasonic sensor for obstacle avoidance.</li>
+                    <li>Designed and 3D-printed a custom chassis for durability and integrated an LCD screen for real-time diagnostic updates.</li>
+                </ul>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <strong>North Carolina State University, College of Engineering</strong><br>
+                    B.S. in Computer Science (Expected Spring 2027)<br>
+                    <em>GPA: 4.0/4.0 | Ranked 1/7903 in class</em>
+                </li>
+                <li>
+                    <strong>University of South Florida, Judy Genshaft Honors College</strong> (2024-25)<br>
+                    B.S. in Computer Science (Transferred)<br>
+                    <em>GPA: 4.0/4.0</em>
+                </li>
+                <li>
+                    <strong>Central Piedmont Community College</strong> (Summer Session 2025)<br>
+                    <em>GPA: 4.0/4.0</em>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section id="skills">
+            <div class="grid">
+                <div>
+                    <h2>Technical Skills</h2>
+                    <p>
+                        <strong>Languages:</strong> Python, Java, C, C++, C#, RISC-V Assembly, HTML, CSS<br>
+                        <strong>Software & Libraries:</strong> Flask, FastAPI, REST APIs, pandas, NumPy, Matplotlib, Jupyter Notebook, Docker, Git, VS Code, PyCharm<br>
+                        <strong>Core Competencies:</strong> Data Structures & Algorithms, Machine Learning
+                    </p>
+                    <p><strong>Spoken Languages:</strong> English, Czech</p>
+                </div>
+                <div>
+                    <h2>Honors & Affiliations</h2>
+                    <ul>
+                        <li><strong>AP Scholar with Distinction</strong> (Highest AP Award) – College Board, 2024</li>
+                        <li><strong>International MENSA IQ Society</strong> – 99.9 percentile; Stanford-Binet score: 152 (MENSA, Czech Republic, 2022)</li>
+                        <li><strong>Dean's List</strong> – All semesters across all universities</li>
+                        <li><strong>Memberships:</strong> ACM and IEEE</li>
+                        <li><strong>Other Roles:</strong> Mathematics Tutor (Paid position), Engineering Workshop Participant, Aerospace Physics Student (Summer 2023)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
 </body>
 </html>
