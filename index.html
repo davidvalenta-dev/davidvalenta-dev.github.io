@@ -3,169 +3,1808 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Valenta | Researcher & Software Engineer</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <meta name="description" content="David Valenta is an undergraduate researcher in computer science focused on software reliability, machine learning frameworks, and data-driven computational simulations.">
+    <meta name="theme-color" content="#050812">
+    <meta property="og:title" content="David Valenta | Computer Science Researcher">
+    <meta property="og:description" content="Software reliability, machine learning frameworks, data-driven computational simulations, and full-stack systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/dvalent2@ncsu.edu-4145bade.jpg">
+    <title>David Valenta | Computer Science Researcher</title>
     <style>
-        nav ul li { padding: 0 0.5rem; }
-        .contact-header { font-size: 0.9rem; color: var(--pico-muted-color); }
-        .profile-pic {
-            border-radius: 50%;
-            max-width: 200px;
+        :root {
+            color-scheme: dark;
+            --bg: #050812;
+            --bg-deep: #02040a;
+            --panel: rgba(9, 15, 31, 0.72);
+            --panel-strong: rgba(12, 20, 39, 0.88);
+            --line: rgba(134, 239, 172, 0.18);
+            --line-blue: rgba(56, 189, 248, 0.22);
+            --text: #eef7ff;
+            --muted: #a9bad0;
+            --soft: #6f8199;
+            --cyan: #49d9ff;
+            --green: #77f7a1;
+            --violet: #b89cff;
+            --rose: #ff6fae;
+            --amber: #ffd166;
+            --shadow: rgba(0, 0, 0, 0.45);
+            --radius: 8px;
+            --max: 1180px;
+            --scroll-progress: 0;
+            --scroll-pulse: 0;
+            --brain-tilt: -8deg;
+            --brain-scale: 1;
+            --signal-hue: 185;
+            --dash-offset: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg);
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(73, 217, 255, 0.16), transparent 31rem),
+                radial-gradient(circle at 86% 8%, rgba(119, 247, 161, 0.13), transparent 28rem),
+                radial-gradient(circle at 78% 72%, rgba(255, 111, 174, 0.12), transparent 25rem),
+                linear-gradient(135deg, #050812 0%, #07101f 42%, #03050d 100%);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            content: "";
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.2));
+        }
+
+        body::after {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            content: "";
+            background:
+                linear-gradient(115deg, transparent 0%, rgba(73, 217, 255, 0.08) 38%, transparent 52%),
+                radial-gradient(circle at center, transparent 0%, rgba(2, 4, 10, 0.38) 74%, rgba(2, 4, 10, 0.82) 100%);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
             display: block;
-            margin: 0 auto 1rem;
-            background-color: var(--pico-muted-color);
+            max-width: 100%;
+        }
+
+        ::selection {
+            color: #041018;
+            background: var(--green);
+        }
+
+        .network-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .site-shell {
+            position: relative;
+            z-index: 1;
+        }
+
+        .scanline {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.11;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.04) 0,
+                rgba(255, 255, 255, 0.04) 1px,
+                transparent 1px,
+                transparent 8px
+            );
+            mix-blend-mode: soft-light;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(5, 8, 18, 0.78);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            display: flex;
+            width: min(var(--max), calc(100% - 32px));
+            min-height: 72px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: grid;
+            gap: 2px;
+        }
+
+        .brand-name {
+            font-size: 0.96rem;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .brand-sub {
+            color: var(--muted);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.72rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 6px;
+        }
+
+        .nav-links a {
+            border: 1px solid transparent;
+            border-radius: 999px;
+            color: var(--muted);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 8px 12px;
+            transition: 180ms ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            border-color: rgba(73, 217, 255, 0.25);
+            color: var(--text);
+            background: rgba(73, 217, 255, 0.08);
+            outline: none;
+        }
+
+        .hero {
+            display: grid;
+            width: min(var(--max), calc(100% - 32px));
+            min-height: calc(100vh - 72px);
+            margin: 0 auto;
+            padding: 76px 0 44px;
+            align-items: center;
+            gap: 42px;
+            grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+        }
+
+        .hero-copy {
+            position: relative;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            border: 1px solid rgba(119, 247, 161, 0.34);
+            border-radius: 999px;
+            margin: 0 0 22px;
+            color: var(--green);
+            background: rgba(119, 247, 161, 0.07);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 8px 12px;
+            box-shadow: 0 0 28px rgba(119, 247, 161, 0.08);
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 11ch;
+            margin-bottom: 20px;
+            font-size: clamp(4.1rem, 11vw, 9.1rem);
+            line-height: 0.86;
+            letter-spacing: 0;
+        }
+
+        .gradient-text {
+            color: transparent;
+            background: linear-gradient(92deg, #f8fbff 0%, #49d9ff 34%, #77f7a1 66%, #ff6fae 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            text-shadow: 0 0 54px rgba(73, 217, 255, 0.16);
+        }
+
+        .hero-lede {
+            max-width: 720px;
+            margin-bottom: 28px;
+            color: #cfe3f8;
+            font-size: clamp(1.12rem, 2.4vw, 1.52rem);
+            line-height: 1.48;
+        }
+
+        .hero-lede strong {
+            color: var(--text);
+        }
+
+        .contact-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .contact-pill {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.055);
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 8px 12px;
+        }
+
+        a.contact-pill {
+            color: var(--text);
+        }
+
+        .contact-pill:hover,
+        .contact-pill:focus-visible {
+            border-color: rgba(73, 217, 255, 0.35);
+            color: var(--cyan);
+            outline: none;
+        }
+
+        .focus-grid {
+            display: grid;
+            max-width: 760px;
+            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .focus-chip {
+            position: relative;
+            min-height: 86px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 15px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.072), rgba(255, 255, 255, 0.026));
+            box-shadow: 0 14px 42px rgba(0, 0, 0, 0.22);
+        }
+
+        .focus-chip::before {
+            position: absolute;
+            inset: 0;
+            content: "";
+            background: linear-gradient(90deg, rgba(73, 217, 255, 0.18), rgba(119, 247, 161, 0.12), transparent);
+            opacity: 0;
+            transition: opacity 180ms ease;
+        }
+
+        .focus-chip:hover::before {
+            opacity: 1;
+        }
+
+        .focus-chip span,
+        .focus-chip strong {
+            position: relative;
+        }
+
+        .focus-chip span {
+            display: block;
+            color: var(--soft);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .focus-chip strong {
+            display: block;
+            margin-top: 4px;
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        .profile-stage {
+            position: relative;
+            min-height: 620px;
+            display: grid;
+            align-items: center;
+            align-content: center;
+            gap: 16px;
+            overflow: hidden;
+        }
+
+        .brain-orbit {
+            position: absolute;
+            inset: 3% -4% auto auto;
+            width: min(78vw, 540px);
+            aspect-ratio: 1;
+            border: 1px solid rgba(73, 217, 255, 0.24);
+            border-radius: 50%;
+            background:
+                radial-gradient(circle at 46% 42%, rgba(73, 217, 255, 0.22), transparent 22%),
+                radial-gradient(circle at 60% 54%, rgba(119, 247, 161, 0.18), transparent 20%),
+                radial-gradient(circle at 42% 61%, rgba(184, 156, 255, 0.16), transparent 18%);
+            filter: drop-shadow(0 0 70px rgba(73, 217, 255, 0.26));
+            animation: pulseBrain 5s ease-in-out infinite;
+        }
+
+        .brain-orbit::before,
+        .brain-orbit::after {
+            position: absolute;
+            inset: 8%;
+            content: "";
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 45% 55% 52% 48% / 52% 43% 57% 48%;
+            transform: rotate(17deg);
+        }
+
+        .brain-orbit::after {
+            inset: 18%;
+            border-color: rgba(119, 247, 161, 0.25);
+            border-radius: 56% 44% 48% 52% / 40% 56% 44% 60%;
+            transform: rotate(-28deg);
+        }
+
+        .neural-brain-hud {
+            position: absolute;
+            z-index: 0;
+            top: -18px;
+            right: -132px;
+            width: min(104vw, 590px);
+            aspect-ratio: 1.18;
+            opacity: 0.74;
+            pointer-events: none;
+            transform: translateY(calc(var(--scroll-pulse) * -22px)) rotate(var(--brain-tilt)) scale(var(--brain-scale));
+            transform-origin: 54% 48%;
+            transition: transform 120ms linear, filter 120ms linear;
+            filter:
+                drop-shadow(0 0 34px hsla(var(--signal-hue), 100%, 70%, 0.18))
+                drop-shadow(0 0 76px rgba(119, 247, 161, 0.12));
+        }
+
+        .neural-brain-hud svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            opacity: 0.72;
+            mix-blend-mode: screen;
+        }
+
+        .brain-shell {
+            fill: rgba(7, 13, 28, 0.12);
+            stroke: hsla(var(--signal-hue), 100%, 70%, 0.62);
+            stroke-width: 2;
+            stroke-dasharray: 10 13;
+            stroke-dashoffset: var(--dash-offset);
+        }
+
+        .brain-fold {
+            fill: none;
+            stroke: rgba(238, 247, 255, 0.14);
+            stroke-width: 1.4;
+            stroke-linecap: round;
+        }
+
+        .axon {
+            fill: none;
+            stroke: hsla(var(--signal-hue), 100%, 70%, 0.5);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-dasharray: 16 12;
+            stroke-dashoffset: var(--dash-offset);
+        }
+
+        .axon.hot {
+            stroke: rgba(119, 247, 161, 0.72);
+            stroke-width: 2.1;
+            filter: drop-shadow(0 0 7px rgba(119, 247, 161, 0.82));
+        }
+
+        .synapse-dot {
+            fill: rgba(73, 217, 255, 0.82);
+            stroke: rgba(238, 247, 255, 0.72);
+            stroke-width: 1.2;
+            transform-origin: center;
+            animation: synapsePulse 2.6s ease-in-out infinite;
+        }
+
+        .synapse-dot:nth-of-type(2n) {
+            fill: rgba(119, 247, 161, 0.86);
+            animation-delay: -0.8s;
+        }
+
+        .synapse-dot:nth-of-type(3n) {
+            fill: rgba(255, 111, 174, 0.78);
+            animation-delay: -1.4s;
+        }
+
+        .neural-readout {
+            position: absolute;
+            right: 11%;
+            bottom: 14%;
+            display: grid;
+            min-width: 210px;
+            gap: 4px;
+            border: 1px solid rgba(73, 217, 255, 0.28);
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: #c9ffe0;
+            background: rgba(3, 8, 16, 0.66);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.26);
+            backdrop-filter: blur(12px);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.72rem;
+            mix-blend-mode: normal;
+        }
+
+        .neural-readout span:last-child {
+            color: var(--cyan);
+        }
+
+        .portrait-card {
+            position: relative;
+            z-index: 3;
+            width: min(100%, 430px);
+            margin-left: auto;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(7, 12, 25, 0.78);
+            box-shadow: 0 30px 95px rgba(0, 0, 0, 0.42), 0 0 70px rgba(73, 217, 255, 0.12);
+            transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+        }
+
+        .portrait-card::before {
+            content: none;
+        }
+
+        .portrait-card img {
+            width: 100%;
+            height: clamp(470px, 58vh, 640px);
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            object-position: 50% 24%;
+            filter: saturate(0.9) contrast(1.04);
+        }
+
+        .terminal-card {
+            position: relative;
+            z-index: 4;
+            right: auto;
+            bottom: auto;
+            width: min(100%, 360px);
+            border: 1px solid rgba(119, 247, 161, 0.22);
+            border-radius: 8px;
+            margin: 0 0 0 auto;
+            padding: 14px;
+            color: #c9ffe0;
+            background: rgba(3, 8, 16, 0.82);
+            box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(14px);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.78rem;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .terminal-dots span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--rose);
+        }
+
+        .terminal-dots span:nth-child(2) {
+            background: var(--amber);
+        }
+
+        .terminal-dots span:nth-child(3) {
+            background: var(--green);
+        }
+
+        .terminal-line {
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .terminal-line .dim {
+            color: #6f8199;
+        }
+
+        .section {
+            width: min(var(--max), calc(100% - 32px));
+            margin: 0 auto;
+            padding: 88px 0;
+        }
+
+        .section-header {
+            display: grid;
+            max-width: 830px;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+
+        .section-kicker {
+            color: var(--green);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin-bottom: 0;
+            font-size: clamp(2.1rem, 5vw, 4.9rem);
+            line-height: 0.98;
+            letter-spacing: 0;
+        }
+
+        .section-header p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 1.02rem;
+            max-width: 770px;
+        }
+
+        .panel {
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            border-radius: var(--radius);
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.072), rgba(255, 255, 255, 0.028)),
+                rgba(5, 8, 18, 0.84);
+            box-shadow: 0 28px 90px rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(16px);
+        }
+
+        .about-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.48fr);
+        }
+
+        .bio-panel {
+            padding: 28px;
+        }
+
+        .bio-panel p {
+            color: #d6e6f7;
+            font-size: 1.02rem;
+        }
+
+        .bio-panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .signal-panel {
+            position: relative;
+            overflow: hidden;
+            padding: 24px;
+        }
+
+        .signal-panel::before {
+            position: absolute;
+            inset: -40% -20% auto auto;
+            width: 260px;
+            height: 260px;
+            content: "";
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(73, 217, 255, 0.2), transparent 68%);
+        }
+
+        .signal-list {
+            position: relative;
+            display: grid;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .signal-list li {
+            border-left: 2px solid rgba(73, 217, 255, 0.5);
+            padding-left: 14px;
+        }
+
+        .signal-list strong {
+            display: block;
+            color: var(--text);
+        }
+
+        .signal-list span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .research-grid,
+        .project-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .research-card,
+        .project-card,
+        .education-card,
+        .honor-card {
+            position: relative;
+            min-height: 100%;
+            overflow: hidden;
+            padding: 22px;
+        }
+
+        .research-card::before,
+        .project-card::before,
+        .education-card::before,
+        .honor-card::before {
+            position: absolute;
+            inset: 0;
+            content: "";
+            border-top: 1px solid rgba(73, 217, 255, 0.28);
+            background: linear-gradient(145deg, rgba(73, 217, 255, 0.105), transparent 38%);
+            opacity: 0.82;
+        }
+
+        .research-card > *,
+        .project-card > *,
+        .education-card > *,
+        .honor-card > * {
+            position: relative;
+        }
+
+        h3 {
+            margin-bottom: 12px;
+            color: #f7fbff;
+            font-size: 1.06rem;
+            line-height: 1.25;
+        }
+
+        .research-card p,
+        .project-card p,
+        .education-card p,
+        .honor-card p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 18px;
+        }
+
+        .timeline::before {
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            left: 21px;
+            content: "";
+            width: 1px;
+            background: linear-gradient(to bottom, var(--cyan), var(--green), var(--rose));
+            opacity: 0.5;
+        }
+
+        .timeline-item {
+            position: relative;
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 44px minmax(0, 1fr);
+        }
+
+        .timeline-node {
+            position: relative;
+            z-index: 1;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(73, 217, 255, 0.42);
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(119, 247, 161, 0.85), rgba(73, 217, 255, 0.25) 45%, rgba(5, 8, 18, 0.9) 70%);
+            box-shadow: 0 0 30px rgba(73, 217, 255, 0.32);
+        }
+
+        .timeline-card {
+            padding: 22px;
+        }
+
+        .timeline-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .timeline-title {
+            margin: 0;
+            font-size: 1.2rem;
+            line-height: 1.25;
+        }
+
+        .timeline-meta {
+            display: inline-flex;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.045);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.74rem;
+            padding: 6px 10px;
+            text-align: right;
+        }
+
+        .timeline-card ul {
+            display: grid;
+            gap: 9px;
+            margin: 0;
+            padding-left: 19px;
+            color: #c7d8ea;
+        }
+
+        .timeline-card li::marker {
+            color: var(--green);
+        }
+
+        .split-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: 0.86fr 1.14fr;
+        }
+
+        .education-list,
+        .honor-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .education-card p + p {
+            margin-top: 8px;
+        }
+
+        .skill-matrix {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .skill-box {
+            padding: 20px;
+        }
+
+        .skill-box h3 {
+            color: var(--green);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+        }
+
+        .skill-box p {
+            margin-bottom: 0;
+            color: #d5e5f5;
+            font-size: 0.95rem;
+        }
+
+        .output-panel {
+            display: grid;
+            gap: 14px;
+            padding: 22px;
+        }
+
+        .output-panel strong {
+            color: var(--text);
+        }
+
+        .output-panel p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .contact-section {
+            padding-bottom: 62px;
+        }
+
+        .contact-card {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            padding: 34px;
+            gap: 20px;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: center;
+        }
+
+        .contact-card::before {
+            position: absolute;
+            inset: auto -10% -65% 18%;
+            height: 260px;
+            content: "";
+            background: radial-gradient(circle, rgba(119, 247, 161, 0.17), transparent 62%);
+        }
+
+        .contact-card > * {
+            position: relative;
+        }
+
+        .contact-card h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+        }
+
+        .contact-card p {
+            max-width: 700px;
+            margin: 12px 0 0;
+            color: var(--muted);
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            border: 1px solid rgba(73, 217, 255, 0.38);
+            border-radius: 999px;
+            color: #061018;
+            background: linear-gradient(135deg, var(--cyan), var(--green));
+            font-size: 0.92rem;
+            font-weight: 900;
+            padding: 10px 16px;
+            box-shadow: 0 12px 34px rgba(73, 217, 255, 0.2);
+        }
+
+        .button.secondary {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        footer {
+            width: min(var(--max), calc(100% - 32px));
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.09);
+            color: var(--soft);
+            padding: 24px 0 42px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.78rem;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 620ms ease, transform 620ms ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes pulseBrain {
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.035) rotate(3deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes synapsePulse {
+            0%,
+            100% {
+                opacity: 0.48;
+                transform: scale(0.82);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(calc(1.18 + var(--scroll-pulse) * 0.45));
+            }
+        }
+
+        @media (max-width: 980px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 54px;
+            }
+
+            .profile-stage {
+                min-height: 520px;
+            }
+
+            .portrait-card {
+                margin: 0 auto;
+            }
+
+            .terminal-card {
+                left: auto;
+                right: auto;
+                bottom: auto;
+                margin: 0 auto;
+            }
+
+            .brain-orbit {
+                inset: 0;
+                margin: auto;
+            }
+
+            .neural-brain-hud {
+                top: 4px;
+                right: 50%;
+                width: min(96vw, 500px);
+                transform: translateX(50%) translateY(calc(var(--scroll-pulse) * -18px)) rotate(var(--brain-tilt)) scale(var(--brain-scale));
+            }
+
+            .research-grid,
+            .project-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-grid,
+            .split-grid,
+            .contact-card {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-actions {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-inner {
+                min-height: auto;
+                padding: 14px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+            }
+
+            .nav-links a {
+                padding: 7px 9px;
+            }
+
+            h1 {
+                font-size: clamp(3.45rem, 19vw, 6rem);
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 44px 0 24px;
+            }
+
+            .focus-grid,
+            .research-grid,
+            .project-grid,
+            .skill-matrix {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-stage {
+                min-height: 470px;
+            }
+
+            .portrait-card img {
+                height: 390px;
+            }
+
+            .neural-brain-hud {
+                top: -10px;
+                width: min(92vw, 360px);
+                opacity: 0.62;
+            }
+
+            .neural-readout {
+                right: 8%;
+                bottom: 8%;
+                min-width: 180px;
+                font-size: 0.68rem;
+            }
+
+            .terminal-card {
+                left: auto;
+                right: auto;
+                bottom: auto;
+                margin: 0 auto;
+            }
+
+            .terminal-line {
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
+
+            .section {
+                padding: 62px 0;
+            }
+
+            .timeline-top {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .timeline-meta {
+                text-align: left;
+            }
+
+            .contact-card {
+                padding: 24px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
         }
     </style>
 </head>
 <body>
+    <canvas class="network-canvas" id="networkCanvas" aria-hidden="true"></canvas>
+    <div class="scanline" aria-hidden="true"></div>
 
-    <header class="container">
-        <nav>
-            <ul>
-                <li><strong>David Valenta</strong></li>
-            </ul>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills & Honors</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="container">
-        
-        <section id="about">
-            <div class="grid">
-                <div>
-                    <hgroup>
-                        <h1>David Valenta</h1>
-                        <p>Undergraduate Researcher in Computer Science</p>
-                    </hgroup>
-                    <p class="contact-header">
-                        Charlotte, NC | 
-                        <a href="mailto:david.valenta@outlook.com">david.valenta@outlook.com</a> | 
-                        980.428.3650 | 
-                        U.S. Citizen
-                    </p>
-                    <p>
-                    I am an undergraduate researcher and software engineer focusing on the reliability of large-scale software systems and data-driven computational simulations. Currently pursuing my B.S. in Computer Science at North Carolina State University, I am passionate about utilizing techniques like fuzzing and mutation testing to optimize machine learning frameworks. I have worked rigorously stressing inputs on Pytorch and Tensorflow. I have switched research to now creating a new ML framework built from Pytorch for Wind Farm artificial intelligence. This is the core part of my REU this summer (2026). I also have extensive experience building full-stack applications, data pipelines, and interactive knowledge graphs.
-<br><br>
-Outside the lab, I am a competitive wrestler placing first in many tournaments. I have wrestled for both my schools (varsity high school and club college) and an independent organization called C2X. I no longer compete, only practice, and devote my time to academia.
-
-  </p> 
-
-                </div>
-                <div>
-                    
-                    <img src="images/dvalent2@ncsu.edu-4145bade.jpg" alt="David Valenta" class="profile-pic" width="200" height="200">
-                </div>
+    <div class="site-shell">
+        <header class="nav">
+            <div class="nav-inner">
+                <a class="brand" href="#top" aria-label="David Valenta home">
+                    <span class="brand-name">David Valenta</span>
+                    <span class="brand-sub">researcher://software-reliability</span>
+                </a>
+                <nav class="nav-links" aria-label="Primary navigation">
+                    <a href="#research">Research</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#cv">CV</a>
+                    <a href="#contact">Contact</a>
+                </nav>
             </div>
-        </section>
+        </header>
 
-        <hr>
-
-        <section id="experience">
-            <h2>Research & Work Experience</h2>
-            
-            <article>
-                <header>
-                    <strong>Incoming NSF REU: Data-Driven Computational Simulations</strong><br>
-                    <small><em>Undergraduate Researcher | Vancouver, Washington | 05/2026-08/2026</em></small>
-                </header>
-            </article>
-
-            <article>
-                <header>
-                    <strong>Software Engineering (WISER) Lab</strong><br>
-                    <small><em>Undergraduate Researcher | Raleigh, North Carolina | 10/2025-02/2026</em></small>
-                </header>
-                <ul>
-                    <li>Focused on testing the reliability of large-scale software systems at North Carolina State University.</li>
-                    <li>Utilized fuzzing, mutation testing, and program analysis to reproduce and analyze mutator-generated bugs in TensorFlow and PyTorch, focusing on framework behavior under edge cases.</li>
-                    <li>Conducted comparisons of TensorFlow and PyTorch execution differences, identifying inconsistencies in operator behavior, error handling, CPU vs. GPU execution, and model outputs.</li>
-                    <li>Collaborated with Ph.D. researchers to document framework-specific behaviors and experimental findings to support ongoing research.</li>
-                </ul>
-            </article>
-
-            <article>
-                <header>
-                    <strong>RelationalAI</strong><br>
-                    <small><em>Product Engineer | Remote - Berkeley, California | 05/2025-08/2025</em></small>
-                </header>
-                <ul>
-                    <li>Designed and delivered an API backend for client applications.</li>
-                    <li>Developed a full-stack ArborQuest application leveraging USDA and iNaturalist data, integrating Cortex AI to project plant bloom times and enhance predictive capabilities.</li>
-                    <li>Utilized Snowflake, DBT, SQL, and Python to build and optimize the data pipeline.</li>
-                    <li>Built an interactive Streamlit app and dashboards to enable clients to explore model outputs interactively.</li>
-                    <li>Constructed a knowledge graph from large, multi-source datasets utilizing Louvain community detection, cosine similarity, and Jaccard algorithms to find plant clusters and relationships.</li>
-                    <li>Developed interactive graph visualizations with the InfoMap algorithm to communicate insights.</li>
-                </ul>
-            </article>
-
-            <article>
-                <header>
-                    <strong>USF Engineering Lab</strong><br>
-                    <small><em>Software Engineer Lead | Tampa, Florida | 08/2024-12/2024</em></small>
-                </header>
-                <ul>
-                    <li>Collaborated with a team of four to design and build a fully functional robot from scratch over five months, winning 2nd place.</li>
-                    <li>Programmed the robot's movements and line-following capabilities in C++ using an Arduino Uno microcontroller, two IR sensors, and an ultrasonic sensor for obstacle avoidance.</li>
-                    <li>Designed and 3D-printed a custom chassis for durability and integrated an LCD screen for real-time diagnostic updates.</li>
-                </ul>
-            </article>
-        </section>
-
-        <hr>
-
-        <section id="education">
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <strong>North Carolina State University, College of Engineering</strong><br>
-                    B.S. in Computer Science (Expected Spring 2027)<br>
-                    <em>GPA: 4.0/4.0 | Ranked 1/7903 in class</em>
-                </li>
-                <li>
-                    <strong>University of South Florida, Judy Genshaft Honors College</strong> (2024-25)<br>
-                    B.S. in Computer Science (Transferred)<br>
-                    <em>GPA: 4.0/4.0</em>
-                </li>
-                <li>
-                    <strong>Central Piedmont Community College</strong> (Summer Session 2025)<br>
-                    <em>GPA: 4.0/4.0</em>
-                </li>
-            </ul>
-        </section>
-
-        <hr>
-
-        <section id="skills">
-            <div class="grid">
-                <div>
-                    <h2>Technical Skills</h2>
-                    <p>
-                        <strong>Languages:</strong> Python, Java, C, C++, C#, RISC-V Assembly, HTML, CSS<br>
-                        <strong>Software & Libraries:</strong> Flask, FastAPI, REST APIs, pandas, NumPy, Matplotlib, Jupyter Notebook, Docker, Git, VS Code, PyCharm<br>
-                        <strong>Core Competencies:</strong> Data Structures & Algorithms, Machine Learning
+        <main id="top">
+            <section class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">Undergraduate Researcher in Computer Science</p>
+                    <h1><span class="gradient-text">David Valenta</span></h1>
+                    <p class="hero-lede">
+                        I study the reliability of large-scale software systems and machine learning frameworks, with work spanning fuzzing, mutation testing, computational simulation, and full-stack data systems.
                     </p>
-                    <p><strong>Spoken Languages:</strong> English, Czech</p>
+                    <div class="contact-strip" aria-label="Contact details">
+                        <span class="contact-pill">Charlotte, NC</span>
+                        <a class="contact-pill" href="mailto:david.valenta@outlook.com">david.valenta@outlook.com</a>
+                        <a class="contact-pill" href="tel:+19804283650">980.428.3650</a>
+                        <span class="contact-pill">U.S. Citizen</span>
+                    </div>
+                    <div class="focus-grid" aria-label="Research focus areas">
+                        <div class="focus-chip">
+                            <span>01 / systems</span>
+                            <strong>Reliability testing for large-scale software</strong>
+                        </div>
+                        <div class="focus-chip">
+                            <span>02 / ML</span>
+                            <strong>TensorFlow and PyTorch behavior under edge cases</strong>
+                        </div>
+                        <div class="focus-chip">
+                            <span>03 / simulation</span>
+                            <strong>Data-driven computational simulations</strong>
+                        </div>
+                        <div class="focus-chip">
+                            <span>04 / graphs</span>
+                            <strong>Data pipelines, dashboards, and knowledge graphs</strong>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h2>Honors & Affiliations</h2>
-                    <ul>
-                        <li><strong>AP Scholar with Distinction</strong> (Highest AP Award) – College Board, 2024</li>
-                        <li><strong>International MENSA IQ Society</strong> – 99.9 percentile; Stanford-Binet score: 152 (MENSA, Czech Republic, 2022)</li>
-                        <li><strong>Dean's List</strong> – All semesters across all universities</li>
-                        <li><strong>Memberships:</strong> ACM and IEEE</li>
-                        <li><strong>Other Roles:</strong> Mathematics Tutor (Paid position), Engineering Workshop Participant, Aerospace Physics Student (Summer 2023)</li>
-                    </ul>
+
+                <div class="profile-stage" aria-label="Profile portrait and live research motif">
+                    <div class="brain-orbit" aria-hidden="true"></div>
+                    <div class="neural-brain-hud" aria-hidden="true">
+                        <svg class="brain-network" viewBox="0 0 640 520" role="img">
+                            <defs>
+                                <radialGradient id="brainGlow" cx="50%" cy="48%" r="62%">
+                                    <stop offset="0%" stop-color="#49d9ff" stop-opacity="0.24"></stop>
+                                    <stop offset="50%" stop-color="#77f7a1" stop-opacity="0.12"></stop>
+                                    <stop offset="100%" stop-color="#050812" stop-opacity="0"></stop>
+                                </radialGradient>
+                            </defs>
+                            <path d="M118 282 C66 270 45 224 61 177 C70 149 94 128 124 126 C128 82 169 50 213 61 C237 23 293 24 322 59 C359 28 420 43 438 89 C489 87 532 126 531 177 C589 201 597 273 548 312 C557 363 516 407 464 402 C440 445 374 448 343 412 C305 447 244 438 224 394 C177 403 132 367 139 320 C124 309 115 296 118 282 Z" fill="url(#brainGlow)"></path>
+                            <path class="brain-shell" d="M118 282 C66 270 45 224 61 177 C70 149 94 128 124 126 C128 82 169 50 213 61 C237 23 293 24 322 59 C359 28 420 43 438 89 C489 87 532 126 531 177 C589 201 597 273 548 312 C557 363 516 407 464 402 C440 445 374 448 343 412 C305 447 244 438 224 394 C177 403 132 367 139 320 C124 309 115 296 118 282 Z"></path>
+                            <path class="brain-fold" d="M141 153 C177 134 201 151 218 179 C235 209 207 232 226 259 C246 289 297 270 305 313 C312 350 267 361 274 398"></path>
+                            <path class="brain-fold" d="M305 78 C289 121 323 143 331 179 C339 218 300 244 322 281 C340 311 385 303 398 337 C409 366 385 389 362 410"></path>
+                            <path class="brain-fold" d="M415 111 C388 133 389 168 418 188 C456 215 436 249 462 274 C488 300 527 292 548 314"></path>
+                            <path class="brain-fold" d="M116 245 C151 230 171 253 193 277 C219 305 192 336 226 362"></path>
+                            <path class="brain-fold" d="M452 159 C489 162 506 190 492 221 C478 249 506 267 519 293"></path>
+                            <path class="axon hot" d="M132 279 C188 217 246 227 309 285 C371 343 426 320 513 245"></path>
+                            <path class="axon" d="M159 156 C229 182 244 266 318 282 C393 298 421 205 500 176"></path>
+                            <path class="axon" d="M217 386 C257 323 305 337 346 257 C386 181 436 128 504 119"></path>
+                            <path class="axon" d="M103 215 C194 255 250 167 324 202 C396 236 407 365 482 389"></path>
+                            <path class="axon hot" d="M238 88 C269 152 333 133 359 205 C384 275 325 328 352 409"></path>
+                            <circle class="synapse-dot" cx="132" cy="279" r="6"></circle>
+                            <circle class="synapse-dot" cx="159" cy="156" r="5"></circle>
+                            <circle class="synapse-dot" cx="238" cy="88" r="6"></circle>
+                            <circle class="synapse-dot" cx="318" cy="282" r="7"></circle>
+                            <circle class="synapse-dot" cx="359" cy="205" r="5"></circle>
+                            <circle class="synapse-dot" cx="513" cy="245" r="7"></circle>
+                            <circle class="synapse-dot" cx="482" cy="389" r="5"></circle>
+                            <circle class="synapse-dot" cx="217" cy="386" r="6"></circle>
+                            <circle class="synapse-dot" cx="504" cy="119" r="5"></circle>
+                        </svg>
+                        <div class="neural-readout">
+                            <span id="neuralMode">MODE: RELIABILITY</span>
+                            <span id="neuralPercent">SCROLL SIGNAL: 00%</span>
+                        </div>
+                    </div>
+                    <figure class="portrait-card">
+                        <img src="images/dvalent2@ncsu.edu-4145bade.jpg" alt="Portrait of David Valenta" width="1333" height="2000">
+                    </figure>
+                    <div class="terminal-card" aria-label="Research stack terminal motif">
+                        <div class="terminal-dots" aria-hidden="true">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <p class="terminal-line"><span class="dim">$</span> fuzz --target torch.tensor</p>
+                        <p class="terminal-line"><span class="dim">$</span> compare tensorflow pytorch</p>
+                        <p class="terminal-line"><span class="dim">$</span> simulate wind_farm_ai</p>
+                        <p class="terminal-line"><span class="dim">status:</span> <span id="terminalStatus">learning systems by breaking them</span></p>
+                        <p class="terminal-line"><span class="dim">scroll:</span> <span id="terminalScroll">synapses 00%</span></p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-    </main>
+            <section class="section" id="about">
+                <div class="section-header reveal">
+                    <span class="section-kicker">About</span>
+                    <h2>Computing under stress.</h2>
+                    <p>My research interests center on what complex software does when its inputs, frameworks, and execution environments stop behaving politely.</p>
+                </div>
+                <div class="about-grid">
+                    <article class="panel bio-panel reveal">
+                        <p>
+                            I am an undergraduate researcher and software engineer pursuing a B.S. in Computer Science at North Carolina State University. My work focuses on the reliability of large-scale software systems, data-driven computational simulations, and techniques such as fuzzing and mutation testing for understanding machine learning framework behavior.
+                        </p>
+                        <p>
+                            At the Software Engineering (WISER) Lab, I worked on stressing TensorFlow and PyTorch with mutator-generated inputs, comparing execution differences across framework behavior, error handling, CPU versus GPU execution, and model outputs. In Summer 2026, my NSF REU work focuses on data-driven computational simulations and creating a new ML framework built from PyTorch for wind farm artificial intelligence.
+                        </p>
+                        <p>
+                            I also have experience building full-stack applications, data pipelines, interactive dashboards, and knowledge graphs. Outside the lab, I previously competed in wrestling for school and independent teams, and now focus my time on practice and academia.
+                        </p>
+                    </article>
+                    <aside class="panel signal-panel reveal" aria-label="Current signals">
+                        <ul class="signal-list">
+                            <li>
+                                <strong>North Carolina State University</strong>
+                                <span>B.S. Computer Science, expected Spring 2027</span>
+                            </li>
+                            <li>
+                                <strong>NSF REU</strong>
+                                <span>Data-Driven Computational Simulations, Summer 2026</span>
+                            </li>
+                            <li>
+                                <strong>WISER Lab</strong>
+                                <span>Software reliability, fuzzing, mutation testing</span>
+                            </li>
+                            <li>
+                                <strong>Academic record</strong>
+                                <span>4.0 GPA at listed institutions</span>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
 
+            <section class="section" id="research">
+                <div class="section-header reveal">
+                    <span class="section-kicker">Research</span>
+                    <h2>Failure modes, model behavior, and simulation.</h2>
+                    <p>These themes are drawn from the existing site content and organized around the research identity already present there.</p>
+                </div>
+                <div class="research-grid">
+                    <article class="panel research-card reveal">
+                        <h3>Software Reliability</h3>
+                        <p>Testing the reliability of large-scale software systems, with emphasis on reproducing and analyzing bugs generated by mutators.</p>
+                    </article>
+                    <article class="panel research-card reveal">
+                        <h3>ML Framework Testing</h3>
+                        <p>Studying TensorFlow and PyTorch behavior under edge cases, including operator behavior, error handling, CPU/GPU execution, and model outputs.</p>
+                    </article>
+                    <article class="panel research-card reveal">
+                        <h3>Computational Simulation</h3>
+                        <p>Incoming NSF REU work in data-driven computational simulations, including a PyTorch-based ML framework for wind farm artificial intelligence.</p>
+                    </article>
+                    <article class="panel research-card reveal">
+                        <h3>Data Systems</h3>
+                        <p>Building full-stack applications, data pipelines, dashboards, and knowledge graphs from large multi-source datasets.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="experience">
+                <div class="section-header reveal">
+                    <span class="section-kicker">Experience</span>
+                    <h2>Research and engineering timeline.</h2>
+                    <p>A compact view of the roles and work already listed on the site.</p>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <div class="timeline-node" aria-hidden="true"></div>
+                        <div class="panel timeline-card">
+                            <div class="timeline-top">
+                                <h3 class="timeline-title">Incoming NSF REU: Data-Driven Computational Simulations</h3>
+                                <span class="timeline-meta">Undergraduate Researcher | Vancouver, Washington | 05/2026-08/2026</span>
+                            </div>
+                            <ul>
+                                <li>Summer 2026 REU focused on data-driven computational simulations.</li>
+                                <li>Work centers on creating a new ML framework built from PyTorch for wind farm artificial intelligence.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="timeline-node" aria-hidden="true"></div>
+                        <div class="panel timeline-card">
+                            <div class="timeline-top">
+                                <h3 class="timeline-title">Software Engineering (WISER) Lab</h3>
+                                <span class="timeline-meta">Undergraduate Researcher | Raleigh, North Carolina | 10/2025-02/2026</span>
+                            </div>
+                            <ul>
+                                <li>Focused on testing the reliability of large-scale software systems at North Carolina State University.</li>
+                                <li>Used fuzzing, mutation testing, and program analysis to reproduce and analyze mutator-generated bugs in TensorFlow and PyTorch.</li>
+                                <li>Compared TensorFlow and PyTorch execution differences across operator behavior, error handling, CPU versus GPU execution, and model outputs.</li>
+                                <li>Collaborated with Ph.D. researchers to document framework-specific behaviors and experimental findings.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="timeline-node" aria-hidden="true"></div>
+                        <div class="panel timeline-card">
+                            <div class="timeline-top">
+                                <h3 class="timeline-title">RelationalAI</h3>
+                                <span class="timeline-meta">Product Engineer | Remote - Berkeley, California | 05/2025-08/2025</span>
+                            </div>
+                            <ul>
+                                <li>Designed and delivered an API backend for client applications.</li>
+                                <li>Developed a full-stack ArborQuest application using USDA and iNaturalist data, integrating Cortex AI to project plant bloom times.</li>
+                                <li>Used Snowflake, DBT, SQL, and Python to build and optimize the data pipeline.</li>
+                                <li>Built an interactive Streamlit app and dashboards for client exploration of model outputs.</li>
+                                <li>Constructed a knowledge graph using Louvain community detection, cosine similarity, and Jaccard algorithms.</li>
+                                <li>Developed interactive graph visualizations with the InfoMap algorithm.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="timeline-node" aria-hidden="true"></div>
+                        <div class="panel timeline-card">
+                            <div class="timeline-top">
+                                <h3 class="timeline-title">USF Engineering Lab</h3>
+                                <span class="timeline-meta">Software Engineer Lead | Tampa, Florida | 08/2024-12/2024</span>
+                            </div>
+                            <ul>
+                                <li>Collaborated with a team of four to design and build a fully functional robot from scratch over five months, winning 2nd place.</li>
+                                <li>Programmed movement and line-following capabilities in C++ using an Arduino Uno, two IR sensors, and an ultrasonic sensor.</li>
+                                <li>Designed and 3D-printed a custom chassis and integrated an LCD screen for real-time diagnostic updates.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="projects">
+                <div class="section-header reveal">
+                    <span class="section-kicker">Projects</span>
+                    <h2>Systems I have built or studied.</h2>
+                    <p>Project framing is based only on the work already described in the original page.</p>
+                </div>
+                <div class="project-grid">
+                    <article class="panel project-card reveal">
+                        <h3>PyTorch and TensorFlow Reliability Experiments</h3>
+                        <p>Framework behavior analysis using fuzzing, mutation testing, program analysis, and edge-case input stress.</p>
+                    </article>
+                    <article class="panel project-card reveal">
+                        <h3>PyTorch-Based Wind Farm AI Framework</h3>
+                        <p>NSF REU work in Summer 2026 centered on a new ML framework for wind farm artificial intelligence.</p>
+                    </article>
+                    <article class="panel project-card reveal">
+                        <h3>ArborQuest</h3>
+                        <p>A full-stack application using USDA and iNaturalist data, Cortex AI, Snowflake, DBT, SQL, Python, Streamlit, and dashboards.</p>
+                    </article>
+                    <article class="panel project-card reveal">
+                        <h3>Knowledge Graph and Graph Visualization</h3>
+                        <p>Large multi-source data graph construction using Louvain, cosine similarity, Jaccard, and InfoMap visualizations.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="cv">
+                <div class="section-header reveal">
+                    <span class="section-kicker">CV</span>
+                    <h2>Education, skills, and honors.</h2>
+                    <p>The quick academic snapshot, kept compact for scanning.</p>
+                </div>
+                <div class="split-grid">
+                    <div class="education-list">
+                        <article class="panel education-card reveal">
+                            <h3>North Carolina State University, College of Engineering</h3>
+                            <p>B.S. in Computer Science, expected Spring 2027</p>
+                            <p><strong>GPA:</strong> 4.0/4.0 | <strong>Ranked:</strong> 1/7903 in class</p>
+                        </article>
+                        <article class="panel education-card reveal">
+                            <h3>University of South Florida, Judy Genshaft Honors College</h3>
+                            <p>B.S. in Computer Science, transferred, 2024-25</p>
+                            <p><strong>GPA:</strong> 4.0/4.0</p>
+                        </article>
+                        <article class="panel education-card reveal">
+                            <h3>Central Piedmont Community College</h3>
+                            <p>Summer Session 2025</p>
+                            <p><strong>GPA:</strong> 4.0/4.0</p>
+                        </article>
+                    </div>
+                    <div class="education-list">
+                        <div class="skill-matrix">
+                            <article class="panel skill-box reveal">
+                                <h3>Languages</h3>
+                                <p>Python, Java, C, C++, C#, RISC-V Assembly, HTML, CSS</p>
+                            </article>
+                            <article class="panel skill-box reveal">
+                                <h3>Software</h3>
+                                <p>Flask, FastAPI, REST APIs, pandas, NumPy, Matplotlib, Jupyter Notebook, Docker, Git, VS Code, PyCharm</p>
+                            </article>
+                            <article class="panel skill-box reveal">
+                                <h3>Core</h3>
+                                <p>Data Structures & Algorithms, Machine Learning</p>
+                            </article>
+                        </div>
+                        <div class="honor-list">
+                            <article class="panel honor-card reveal">
+                                <h3>Honors & Affiliations</h3>
+                                <p>AP Scholar with Distinction, International MENSA IQ Society, Dean's List across all semesters, ACM and IEEE memberships.</p>
+                            </article>
+                            <article class="panel honor-card reveal">
+                                <h3>Additional Roles</h3>
+                                <p>Mathematics Tutor, Engineering Workshop Participant, Aerospace Physics Student, English and Czech speaker.</p>
+                            </article>
+                            <article class="panel output-panel reveal">
+                                <strong>Publications / Manuscripts</strong>
+                                <p>Publications and public manuscripts are not listed on the current site yet. This section is ready for updates when items are available.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section contact-section" id="contact">
+                <div class="panel contact-card reveal">
+                    <div>
+                        <span class="section-kicker">Contact</span>
+                        <h2>Let’s talk research, systems, and strange edge cases.</h2>
+                        <p>Reach out for computer science research, software reliability, machine learning framework testing, data systems, or computational simulation work.</p>
+                    </div>
+                    <div class="contact-actions">
+                        <a class="button" href="mailto:david.valenta@outlook.com">Email David</a>
+                        <a class="button secondary" href="tel:+19804283650">Call</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <span>© 2026 David Valenta</span>
+        </footer>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("networkCanvas");
+        const ctx = canvas.getContext("2d");
+        const pointer = { x: -9999, y: -9999, active: false };
+        const snippets = [
+            "torch.Tensor",
+            "mutation_test()",
+            "fuzz(input)",
+            "CPU != GPU?",
+            "operator_edge_case",
+            "wind_farm_ai",
+            "knowledge_graph",
+            "InfoMap",
+            "Louvain",
+            "Jaccard",
+            "Cortex AI",
+            "Snowflake",
+            "DBT",
+            "FastAPI"
+        ];
+        let width = 0;
+        let height = 0;
+        let nodes = [];
+        let codeDrops = [];
+        let reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const root = document.documentElement;
+        const terminalStatus = document.getElementById("terminalStatus");
+        const terminalScroll = document.getElementById("terminalScroll");
+        const neuralMode = document.getElementById("neuralMode");
+        const neuralPercent = document.getElementById("neuralPercent");
+        const signalModes = [
+            { id: "top", label: "RELIABILITY", status: "probing framework behavior" },
+            { id: "about", label: "RESEARCH CONTEXT", status: "mapping research signals" },
+            { id: "research", label: "ML FRAMEWORKS", status: "activating TensorFlow and PyTorch circuits" },
+            { id: "experience", label: "TIMELINE", status: "tracing research and engineering paths" },
+            { id: "projects", label: "GRAPH SYSTEMS", status: "routing knowledge graph clusters" },
+            { id: "cv", label: "ACADEMIC CORE", status: "indexing education, skills, and honors" },
+            { id: "contact", label: "CONTACT", status: "opening communication channel" }
+        ];
+        const brainNodes = [
+            { x: -0.50, y: 0.02 },
+            { x: -0.34, y: -0.38 },
+            { x: -0.13, y: -0.08 },
+            { x: 0.03, y: -0.46 },
+            { x: 0.18, y: 0.04 },
+            { x: 0.38, y: -0.26 },
+            { x: 0.54, y: 0.08 },
+            { x: 0.27, y: 0.38 },
+            { x: -0.06, y: 0.32 },
+            { x: -0.42, y: 0.32 }
+        ];
+        const brainEdges = [
+            [0, 1], [0, 2], [0, 9], [1, 2], [1, 3], [2, 4], [2, 8],
+            [3, 5], [3, 4], [4, 5], [4, 6], [4, 7], [4, 8],
+            [5, 6], [6, 7], [7, 8], [8, 9], [2, 7]
+        ];
+        let scrollState = {
+            progress: 0,
+            velocity: 0,
+            pulse: 0,
+            activeIndex: 0,
+            lastY: window.scrollY || 0
+        };
+        let scrollTicking = false;
+
+        function clamp(value, min, max) {
+            return Math.min(max, Math.max(min, value));
+        }
+
+        function updateScrollSignals() {
+            const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+            const y = window.scrollY || document.documentElement.scrollTop || 0;
+            const rawVelocity = y - scrollState.lastY;
+            scrollState.velocity = scrollState.velocity * 0.76 + rawVelocity * 0.24;
+            scrollState.lastY = y;
+            scrollState.progress = clamp(y / maxScroll, 0, 1);
+            scrollState.pulse = clamp(Math.abs(scrollState.velocity) / 110, 0, 1);
+
+            let closest = Number.POSITIVE_INFINITY;
+            let activeIndex = 0;
+            signalModes.forEach((mode, index) => {
+                const section = mode.id === "top" ? document.querySelector(".hero") : document.getElementById(mode.id);
+                if (!section) return;
+                const rect = section.getBoundingClientRect();
+                const distance = Math.abs(rect.top + rect.height * 0.32 - window.innerHeight * 0.36);
+                if (distance < closest) {
+                    closest = distance;
+                    activeIndex = index;
+                }
+            });
+            scrollState.activeIndex = activeIndex;
+
+            const mode = signalModes[activeIndex];
+            const percent = `${String(Math.round(scrollState.progress * 100)).padStart(2, "0")}%`;
+            root.style.setProperty("--scroll-progress", scrollState.progress.toFixed(4));
+            root.style.setProperty("--scroll-pulse", scrollState.pulse.toFixed(3));
+            root.style.setProperty("--brain-tilt", `${(-8 + scrollState.progress * 18).toFixed(2)}deg`);
+            root.style.setProperty("--brain-scale", (1 + scrollState.pulse * 0.055).toFixed(3));
+            root.style.setProperty("--signal-hue", String(Math.round(180 + scrollState.progress * 92)));
+            root.style.setProperty("--dash-offset", String((-scrollState.progress * 310).toFixed(1)));
+
+            if (neuralMode) neuralMode.textContent = `MODE: ${mode.label}`;
+            if (neuralPercent) neuralPercent.textContent = `SCROLL SIGNAL: ${percent}`;
+            if (terminalStatus) terminalStatus.textContent = mode.status;
+            if (terminalScroll) terminalScroll.textContent = `synapses ${percent}`;
+        }
+
+        function queueScrollSignals() {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(() => {
+                updateScrollSignals();
+                scrollTicking = false;
+            });
+        }
+
+        function resizeCanvas() {
+            const ratio = Math.min(window.devicePixelRatio || 1, 2);
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = Math.floor(width * ratio);
+            canvas.height = Math.floor(height * ratio);
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+            seedScene();
+        }
+
+        function seedScene() {
+            const nodeCount = Math.min(74, Math.max(34, Math.floor((width * height) / 23000)));
+            nodes = Array.from({ length: nodeCount }, (_, i) => {
+                const band = i / Math.max(1, nodeCount - 1);
+                const brainBias = Math.sin(band * Math.PI);
+                return {
+                    x: width * (0.08 + Math.random() * 0.84),
+                    y: height * (0.08 + Math.random() * 0.84),
+                    vx: (Math.random() - 0.5) * 0.34,
+                    vy: (Math.random() - 0.5) * 0.34,
+                    r: 1.2 + Math.random() * 2.2,
+                    hue: Math.random() > 0.52 ? "73, 217, 255" : brainBias > 0.55 ? "119, 247, 161" : "184, 156, 255"
+                };
+            });
+
+            const dropCount = Math.min(24, Math.max(10, Math.floor(width / 58)));
+            codeDrops = Array.from({ length: dropCount }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                speed: 0.28 + Math.random() * 0.76,
+                text: snippets[Math.floor(Math.random() * snippets.length)],
+                alpha: 0.035 + Math.random() * 0.1
+            }));
+        }
+
+        function drawBrainPath(time) {
+            const progress = scrollState.progress;
+            const pulse = scrollState.pulse;
+            const active = scrollState.activeIndex;
+            const cx = width * (0.62 + Math.sin(progress * Math.PI * 1.8) * 0.055);
+            const cy = height * (0.40 + Math.cos(progress * Math.PI * 1.3) * 0.045);
+            const scale = Math.min(width, height) * (0.22 + progress * 0.055 + pulse * 0.035);
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(Math.sin(time * 0.00018 + progress * Math.PI) * 0.11);
+
+            const gradient = ctx.createRadialGradient(0, 0, scale * 0.1, 0, 0, scale * 1.05);
+            gradient.addColorStop(0, `rgba(73, 217, 255, ${0.06 + pulse * 0.06})`);
+            gradient.addColorStop(0.45, `rgba(119, 247, 161, ${0.035 + pulse * 0.045})`);
+            gradient.addColorStop(1, "rgba(5, 8, 18, 0)");
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, scale * 1.28, scale * 0.9, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.beginPath();
+            for (let i = 0; i <= 360; i += 3) {
+                const a = (i * Math.PI) / 180;
+                const organic = Math.sin(a * 5 + time * 0.001 + progress * 5) * 0.09 + Math.cos(a * 3) * 0.08;
+                const x = Math.cos(a) * scale * (0.86 + organic);
+                const y = Math.sin(a) * scale * (0.66 + Math.cos(a * 2) * 0.07 + organic);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.setLineDash([10, 14]);
+            ctx.lineDashOffset = -progress * 280 - time * 0.018;
+            ctx.strokeStyle = `rgba(73, 217, 255, ${0.09 + pulse * 0.16})`;
+            ctx.lineWidth = 1 + pulse * 0.7;
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            for (let lobe = 0; lobe < 7; lobe++) {
+                ctx.beginPath();
+                const offset = (lobe - 3) * 0.17;
+                for (let i = 0; i <= 240; i += 4) {
+                    const a = (i * Math.PI) / 180;
+                    const x = Math.cos(a + offset) * scale * (0.28 + lobe * 0.052);
+                    const y = Math.sin(a * 1.35 + offset) * scale * 0.26 + Math.sin(i * 0.02 + time * 0.001) * 10;
+                    if (i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.strokeStyle = lobe % 2 ? `rgba(119, 247, 161, ${0.07 + pulse * 0.07})` : `rgba(184, 156, 255, ${0.07 + pulse * 0.07})`;
+                ctx.stroke();
+            }
+
+            const point = (node) => ({
+                x: node.x * scale * 1.42,
+                y: node.y * scale * 1.05
+            });
+
+            brainEdges.forEach(([from, to], index) => {
+                const a = point(brainNodes[from]);
+                const b = point(brainNodes[to]);
+                const isHot = (index + active) % 4 === 0;
+                const glow = isHot ? 0.34 + pulse * 0.22 : 0.1 + pulse * 0.1;
+                ctx.beginPath();
+                ctx.moveTo(a.x, a.y);
+                const mx = (a.x + b.x) / 2 + Math.sin(time * 0.001 + index) * scale * 0.035;
+                const my = (a.y + b.y) / 2 + Math.cos(time * 0.0012 + index) * scale * 0.035;
+                ctx.quadraticCurveTo(mx, my, b.x, b.y);
+                ctx.strokeStyle = isHot ? `rgba(119, 247, 161, ${glow})` : `rgba(73, 217, 255, ${glow})`;
+                ctx.lineWidth = isHot ? 1.2 + pulse * 1.0 : 0.7;
+                ctx.stroke();
+            });
+
+            const signal = (time * 0.00034 + progress * 2.4) % 1;
+            ctx.beginPath();
+            ctx.moveTo(-scale * 1.05 + signal * scale * 2.1, -scale * 0.82);
+            ctx.lineTo(-scale * 0.46 + signal * scale * 2.1, scale * 0.82);
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.025 + pulse * 0.07})`;
+            ctx.lineWidth = 10 + pulse * 10;
+            ctx.stroke();
+
+            brainNodes.forEach((node, index) => {
+                const p = point(node);
+                const hotness = (index + active) % 3 === 0 ? 1 : 0;
+                const beat = 0.5 + Math.sin(time * 0.003 + index * 1.7 + progress * 8) * 0.5;
+                const radius = scale * (0.018 + hotness * 0.012 + beat * 0.007 + pulse * 0.012);
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = hotness ? `rgba(119, 247, 161, ${0.52 + pulse * 0.16})` : `rgba(73, 217, 255, ${0.42 + beat * 0.16})`;
+                ctx.shadowColor = hotness ? "rgba(119, 247, 161, 0.48)" : "rgba(73, 217, 255, 0.42)";
+                ctx.shadowBlur = 12 + pulse * 10;
+                ctx.fill();
+            });
+            ctx.shadowBlur = 0;
+            ctx.restore();
+        }
+
+        function animate(time) {
+            ctx.clearRect(0, 0, width, height);
+            drawBrainPath(time);
+            const speedBoost = 1 + scrollState.pulse * 2.8;
+            const activeBoost = 1 + scrollState.activeIndex * 0.035;
+
+            ctx.font = "12px SFMono-Regular, Consolas, monospace";
+            codeDrops.forEach((drop) => {
+                ctx.fillStyle = `rgba(169, 186, 208, ${drop.alpha + scrollState.pulse * 0.05})`;
+                ctx.fillText(drop.text, drop.x, drop.y);
+                if (!reduceMotion) {
+                    drop.y += drop.speed * speedBoost * activeBoost;
+                    if (drop.y > height + 20) {
+                        drop.y = -20;
+                        drop.x = Math.random() * width;
+                        drop.text = snippets[Math.floor(Math.random() * snippets.length)];
+                    }
+                }
+            });
+
+            nodes.forEach((node) => {
+                if (!reduceMotion) {
+                    node.x += node.vx * speedBoost;
+                    node.y += node.vy * speedBoost;
+                }
+
+                if (node.x < -30) node.x = width + 30;
+                if (node.x > width + 30) node.x = -30;
+                if (node.y < -30) node.y = height + 30;
+                if (node.y > height + 30) node.y = -30;
+
+                const dx = pointer.x - node.x;
+                const dy = pointer.y - node.y;
+                const dist = Math.hypot(dx, dy);
+                if (pointer.active && dist < 150 && !reduceMotion) {
+                    const force = (150 - dist) / 150;
+                    node.x -= dx * force * 0.012;
+                    node.y -= dy * force * 0.012;
+                }
+            });
+
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const a = nodes[i];
+                    const b = nodes[j];
+                    const d = Math.hypot(a.x - b.x, a.y - b.y);
+                    const threshold = 116 + scrollState.pulse * 28;
+                    if (d < threshold) {
+                        const alpha = (1 - d / threshold) * (0.13 + scrollState.pulse * 0.16);
+                        ctx.beginPath();
+                        ctx.moveTo(a.x, a.y);
+                        ctx.lineTo(b.x, b.y);
+                        ctx.strokeStyle = (i + j + scrollState.activeIndex) % 5 === 0
+                            ? `rgba(119, 247, 161, ${alpha})`
+                            : `rgba(73, 217, 255, ${alpha})`;
+                        ctx.lineWidth = 0.65 + scrollState.pulse * 0.55;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            if (pointer.active) {
+                nodes.forEach((node) => {
+                    const d = Math.hypot(pointer.x - node.x, pointer.y - node.y);
+                    if (d < 210) {
+                        ctx.beginPath();
+                        ctx.moveTo(pointer.x, pointer.y);
+                        ctx.lineTo(node.x, node.y);
+                        ctx.strokeStyle = `rgba(119, 247, 161, ${(1 - d / 210) * (0.18 + scrollState.pulse * 0.16)})`;
+                        ctx.stroke();
+                    }
+                });
+            }
+
+            nodes.forEach((node) => {
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${node.hue}, ${0.48 + scrollState.pulse * 0.16})`;
+                ctx.shadowColor = `rgba(${node.hue}, 0.4)`;
+                ctx.shadowBlur = 10 + scrollState.pulse * 12;
+                ctx.fill();
+            });
+            ctx.shadowBlur = 0;
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener("pointermove", (event) => {
+            pointer.x = event.clientX;
+            pointer.y = event.clientY;
+            pointer.active = true;
+        });
+
+        window.addEventListener("pointerleave", () => {
+            pointer.active = false;
+        });
+
+        window.addEventListener("resize", resizeCanvas);
+        window.addEventListener("scroll", queueScrollSignals, { passive: true });
+        resizeCanvas();
+        updateScrollSignals();
+        requestAnimationFrame(animate);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.14 });
+
+        document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+    </script>
 </body>
 </html>
