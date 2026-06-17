@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="David Valenta is an undergraduate researcher in computer science focused on software reliability, machine learning frameworks, and data-driven computational simulations.">
+    <meta name="description" content="David Valenta is an undergraduate researcher in computer science focused on machine learning systems, software reliability, optimization, renewable energy, and data systems.">
     <meta name="theme-color" content="#050812">
     <meta property="og:title" content="David Valenta | Computer Science Researcher">
-    <meta property="og:description" content="Software reliability, machine learning frameworks, data-driven computational simulations, and full-stack systems.">
+    <meta property="og:description" content="Machine learning systems, software reliability, optimization, renewable energy dispatch, and large-scale data.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/dvalent2@ncsu.edu-4145bade.jpg">
     <title>David Valenta | Computer Science Researcher</title>
@@ -17,15 +17,15 @@
             --bg-deep: #02040a;
             --panel: rgba(9, 15, 31, 0.72);
             --panel-strong: rgba(12, 20, 39, 0.88);
-            --line: rgba(134, 239, 172, 0.18);
-            --line-blue: rgba(56, 189, 248, 0.22);
+            --line: rgba(134, 239, 172, 0.15);
+            --line-blue: rgba(56, 189, 248, 0.18);
             --text: #eef7ff;
             --muted: #a9bad0;
             --soft: #6f8199;
             --cyan: #49d9ff;
             --green: #77f7a1;
-            --violet: #b89cff;
-            --rose: #ff6fae;
+            --violet: #a8b4ff;
+            --rose: #ff8fb8;
             --amber: #ffd166;
             --shadow: rgba(0, 0, 0, 0.45);
             --radius: 8px;
@@ -54,10 +54,10 @@
             font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.6;
             background:
-                radial-gradient(circle at 12% 18%, rgba(73, 217, 255, 0.16), transparent 31rem),
-                radial-gradient(circle at 86% 8%, rgba(119, 247, 161, 0.13), transparent 28rem),
-                radial-gradient(circle at 78% 72%, rgba(255, 111, 174, 0.12), transparent 25rem),
-                linear-gradient(135deg, #050812 0%, #07101f 42%, #03050d 100%);
+                radial-gradient(circle at 12% 18%, rgba(73, 217, 255, 0.11), transparent 31rem),
+                radial-gradient(circle at 86% 8%, rgba(119, 247, 161, 0.11), transparent 28rem),
+                radial-gradient(circle at 78% 72%, rgba(255, 209, 102, 0.075), transparent 25rem),
+                linear-gradient(135deg, #050812 0%, #07101f 46%, #03050d 100%);
             overflow-x: hidden;
         }
 
@@ -105,7 +105,7 @@
             z-index: 0;
             width: 100%;
             height: 100%;
-            opacity: 0.4;
+            opacity: 0.31;
             pointer-events: none;
         }
 
@@ -119,7 +119,7 @@
             inset: 0;
             z-index: 2;
             pointer-events: none;
-            opacity: 0.11;
+            opacity: 0.07;
             background: repeating-linear-gradient(
                 to bottom,
                 rgba(255, 255, 255, 0.04) 0,
@@ -450,22 +450,7 @@
         }
 
         .neural-readout {
-            position: absolute;
-            right: 11%;
-            bottom: 14%;
-            display: grid;
-            min-width: 210px;
-            gap: 4px;
-            border: 1px solid rgba(73, 217, 255, 0.28);
-            border-radius: 8px;
-            padding: 10px 12px;
-            color: #c9ffe0;
-            background: rgba(3, 8, 16, 0.66);
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.26);
-            backdrop-filter: blur(12px);
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-            font-size: 0.72rem;
-            mix-blend-mode: normal;
+            display: none;
         }
 
         .neural-readout span:last-child {
@@ -649,6 +634,247 @@
             display: block;
             color: var(--muted);
             font-size: 0.9rem;
+        }
+
+        .personal-grid {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.62fr);
+        }
+
+        .personal-panel {
+            position: relative;
+            overflow: hidden;
+            padding: 30px;
+        }
+
+        .personal-panel::before {
+            position: absolute;
+            inset: auto auto -42% -18%;
+            width: 320px;
+            height: 320px;
+            content: "";
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 209, 102, 0.12), transparent 66%);
+        }
+
+        .personal-panel > * {
+            position: relative;
+        }
+
+        .personal-panel p {
+            color: #d6e6f7;
+            font-size: 1.02rem;
+        }
+
+        .personal-panel p:last-child {
+            margin-bottom: 0;
+        }
+
+        .personal-stack {
+            display: grid;
+            gap: 14px;
+        }
+
+        .life-card {
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .life-card::before {
+            position: absolute;
+            inset: 0;
+            content: "";
+            border-top: 1px solid rgba(255, 209, 102, 0.24);
+            background: linear-gradient(145deg, rgba(255, 209, 102, 0.08), transparent 42%);
+        }
+
+        .life-card > * {
+            position: relative;
+        }
+
+        .life-card span {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--amber);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .life-card strong {
+            display: block;
+            color: var(--text);
+            font-size: 1.02rem;
+            line-height: 1.25;
+        }
+
+        .life-card p {
+            margin: 8px 0 0;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .personal-photo-grid {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+        }
+
+        .life-story {
+            display: grid;
+            gap: 18px;
+        }
+
+        .life-topic {
+            display: grid;
+            gap: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 22px;
+            grid-template-columns: minmax(0, 0.86fr) minmax(300px, 1.14fr);
+        }
+
+        .life-topic.hiking-topic {
+            grid-template-columns: 1fr;
+        }
+
+        .life-topic:first-child {
+            border-top: 0;
+            padding-top: 0;
+        }
+
+        .life-topic-copy {
+            align-self: center;
+        }
+
+        .life-topic-copy span {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--amber);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .life-topic-copy h3 {
+            margin-bottom: 10px;
+            font-size: clamp(1.35rem, 2.4vw, 2rem);
+        }
+
+        .life-topic-copy p {
+            margin-bottom: 12px;
+            color: #d6e6f7;
+            font-size: 1rem;
+        }
+
+        .life-topic-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .life-topic-photos {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hiking-topic .life-topic-photos {
+            grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.65fr);
+            align-items: stretch;
+        }
+
+        .life-photo {
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            min-height: 220px;
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            border-radius: 8px;
+            background: rgba(5, 8, 18, 0.84);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+        }
+
+        .life-photo.wide {
+            grid-column: span 3;
+        }
+
+        .life-photo.tall {
+            grid-column: span 3;
+            min-height: 220px;
+        }
+
+        .life-photo.square {
+            aspect-ratio: 1;
+            min-height: 0;
+        }
+
+        .life-photo.feature {
+            grid-column: 1 / -1;
+            aspect-ratio: 16 / 10;
+            min-height: 0;
+        }
+
+        .hiking-topic .life-photo.feature {
+            grid-column: auto;
+            aspect-ratio: 16 / 9;
+        }
+
+        .life-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            object-fit: cover;
+            filter: saturate(0.92) contrast(1.03);
+            transition: transform 420ms ease, filter 420ms ease;
+        }
+
+        .life-photo.contain img {
+            object-fit: contain;
+            padding: 10px;
+            background:
+                radial-gradient(circle at 50% 38%, rgba(73, 217, 255, 0.08), transparent 42%),
+                rgba(3, 8, 16, 0.94);
+        }
+
+        .life-photo.formal-crop img {
+            object-fit: cover;
+            object-position: 50% 38%;
+            padding: 0;
+        }
+
+        .life-photo:hover img {
+            transform: scale(1.035);
+            filter: saturate(1.02) contrast(1.06);
+        }
+
+        .life-photo.contain:hover img {
+            transform: scale(1.015);
+        }
+
+        .life-photo figcaption {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 42px 14px 14px;
+            color: #eef7ff;
+            background: linear-gradient(to top, rgba(2, 4, 10, 0.86), transparent);
+            font-size: 0.83rem;
+            font-weight: 800;
+        }
+
+        .life-photo figcaption span {
+            display: block;
+            color: rgba(238, 247, 255, 0.72);
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
         }
 
         .research-grid,
@@ -988,6 +1214,8 @@
             }
 
             .about-grid,
+            .personal-grid,
+            .life-topic,
             .split-grid,
             .contact-card {
                 grid-template-columns: 1fr;
@@ -1026,7 +1254,20 @@
             .focus-grid,
             .research-grid,
             .project-grid,
-            .skill-matrix {
+            .skill-matrix,
+            .personal-photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .life-photo,
+            .life-photo.wide,
+            .life-photo.tall,
+            .life-photo.feature {
+                grid-column: auto;
+                min-height: 220px;
+            }
+
+            .life-topic-photos {
                 grid-template-columns: 1fr;
             }
 
@@ -1102,13 +1343,15 @@
             <div class="nav-inner">
                 <a class="brand" href="#top" aria-label="David Valenta home">
                     <span class="brand-name">David Valenta</span>
-                    <span class="brand-sub">researcher://software-reliability</span>
+                    <span class="brand-sub">researcher://ml-systems-reliability</span>
                 </a>
                 <nav class="nav-links" aria-label="Primary navigation">
+                    <a href="#about">About</a>
                     <a href="#research">Research</a>
                     <a href="#experience">Experience</a>
                     <a href="#projects">Projects</a>
                     <a href="#cv">CV</a>
+                    <a href="#personal">Life</a>
                     <a href="#contact">Contact</a>
                 </nav>
             </div>
@@ -1117,10 +1360,10 @@
         <main id="top">
             <section class="hero">
                 <div class="hero-copy">
-                    <p class="eyebrow">Undergraduate Researcher in Computer Science</p>
+                    <p class="eyebrow">Machine Learning Systems · Reliability · Optimization</p>
                     <h1><span class="gradient-text">David Valenta</span></h1>
                     <p class="hero-lede">
-                        I study the reliability of large-scale software systems and machine learning frameworks, with work spanning fuzzing, mutation testing, computational simulation, and full-stack data systems.
+                        I work across machine learning systems, software reliability, optimization, and data systems. My current research connects renewable energy dispatch with neural models, while my broader work studies TensorFlow/PyTorch reliability and large-scale knowledge graph systems.
                     </p>
                     <div class="contact-strip" aria-label="Contact details">
                         <span class="contact-pill">Charlotte, NC</span>
@@ -1130,20 +1373,20 @@
                     </div>
                     <div class="focus-grid" aria-label="Research focus areas">
                         <div class="focus-chip">
-                            <span>01 / systems</span>
-                            <strong>Reliability testing for large-scale software</strong>
+                            <span>01 / ML systems</span>
+                            <strong>Neural models, optimization, and reliable decision-making</strong>
                         </div>
                         <div class="focus-chip">
-                            <span>02 / ML</span>
+                            <span>02 / reliability</span>
                             <strong>TensorFlow and PyTorch behavior under edge cases</strong>
                         </div>
                         <div class="focus-chip">
-                            <span>03 / simulation</span>
-                            <strong>Data-driven computational simulations</strong>
+                            <span>03 / energy</span>
+                            <strong>Renewable dispatch, wind farms, and storage systems</strong>
                         </div>
                         <div class="focus-chip">
-                            <span>04 / graphs</span>
-                            <strong>Data pipelines, dashboards, and knowledge graphs</strong>
+                            <span>04 / data</span>
+                            <strong>Knowledge graphs, pipelines, dashboards, and simulation</strong>
                         </div>
                     </div>
                 </div>
@@ -1182,7 +1425,7 @@
                             <circle class="synapse-dot" cx="504" cy="119" r="5"></circle>
                         </svg>
                         <div class="neural-readout">
-                            <span id="neuralMode">MODE: RELIABILITY</span>
+                            <span id="neuralMode">MODE: ENERGY DISPATCH</span>
                             <span id="neuralPercent">SCROLL SIGNAL: 00%</span>
                         </div>
                     </div>
@@ -1193,11 +1436,11 @@
                         <div class="terminal-dots" aria-hidden="true">
                             <span></span><span></span><span></span>
                         </div>
-                        <p class="terminal-line"><span class="dim">$</span> fuzz --target torch.tensor</p>
-                        <p class="terminal-line"><span class="dim">$</span> compare tensorflow pytorch</p>
-                        <p class="terminal-line"><span class="dim">$</span> simulate wind_farm_ai</p>
-                        <p class="terminal-line"><span class="dim">status:</span> <span id="terminalStatus">learning systems by breaking them</span></p>
-                        <p class="terminal-line"><span class="dim">scroll:</span> <span id="terminalScroll">synapses 00%</span></p>
+                        <p class="terminal-line"><span class="dim">$</span> fuzz tensorflow pytorch</p>
+                        <p class="terminal-line"><span class="dim">$</span> gurobi_cl solve dispatch.milp</p>
+                        <p class="terminal-line"><span class="dim">$</span> map knowledge_graph</p>
+                        <p class="terminal-line"><span class="dim">status:</span> <span id="terminalStatus">probing ML systems</span></p>
+                        <p class="terminal-line"><span class="dim">scroll:</span> <span id="terminalScroll">grid signal 00%</span></p>
                     </div>
                 </div>
             </section>
@@ -1205,19 +1448,19 @@
             <section class="section" id="about">
                 <div class="section-header reveal">
                     <span class="section-kicker">About</span>
-                    <h2>Computing under stress.</h2>
-                    <p>My research interests center on what complex software does when its inputs, frameworks, and execution environments stop behaving politely.</p>
+                    <h2>Building reliable ML systems.</h2>
+                    <p>My research sits at the intersection of machine learning, software reliability, optimization, simulation, and data systems.</p>
                 </div>
                 <div class="about-grid">
                     <article class="panel bio-panel reveal">
                         <p>
-                            I am an undergraduate researcher and software engineer pursuing a B.S. in Computer Science at North Carolina State University. My work focuses on the reliability of large-scale software systems, data-driven computational simulations, and techniques such as fuzzing and mutation testing for understanding machine learning framework behavior.
+                            I am an undergraduate researcher pursuing a B.S. in Computer Science at North Carolina State University. My work spans machine learning systems, software reliability, optimization, computational simulation, and large-scale data systems.
                         </p>
                         <p>
-                            At the Software Engineering (WISER) Lab, I worked on stressing TensorFlow and PyTorch with mutator-generated inputs, comparing execution differences across framework behavior, error handling, CPU versus GPU execution, and model outputs. In Summer 2026, my NSF REU work focuses on data-driven computational simulations and creating a new ML framework built from PyTorch for wind farm artificial intelligence.
+                            At the WISER Lab, I investigated TensorFlow and PyTorch behavior under edge cases using fuzzing, mutation testing, and program analysis. That work shaped how I think about trustworthy AI: the model matters, but the framework, training pipeline, and implementation details matter too.
                         </p>
                         <p>
-                            I also have experience building full-stack applications, data pipelines, interactive dashboards, and knowledge graphs. Outside the lab, I previously competed in wrestling for school and independent teams, and now focus my time on practice and academia.
+                            My current energy research builds on that foundation. During my 2026 Summer NSF REU, I worked under Dr. Chris Qin on machine learning approaches for hybrid wind farms integrated with energy storage systems, using Gurobi-generated MILP solutions as training targets for neural dispatch models. My RelationalAI work with knowledge graphs and large datasets gave me another lens for modeling complex real-world systems.
                         </p>
                     </article>
                     <aside class="panel signal-panel reveal" aria-label="Current signals">
@@ -1227,16 +1470,16 @@
                                 <span>B.S. Computer Science, expected Spring 2027</span>
                             </li>
                             <li>
-                                <strong>NSF REU</strong>
-                                <span>Data-Driven Computational Simulations, Summer 2026</span>
-                            </li>
-                            <li>
                                 <strong>WISER Lab</strong>
-                                <span>Software reliability, fuzzing, mutation testing</span>
+                                <span>TensorFlow, PyTorch, fuzzing, mutation testing, and ML reliability</span>
                             </li>
                             <li>
-                                <strong>Academic record</strong>
-                                <span>4.0 GPA at listed institutions</span>
+                                <strong>NSF REU</strong>
+                                <span>Hybrid wind farms, energy storage, Gurobi, MILP, and COVE</span>
+                            </li>
+                            <li>
+                                <strong>RelationalAI</strong>
+                                <span>Knowledge graphs, data pipelines, dashboards, and graph algorithms</span>
                             </li>
                         </ul>
                     </aside>
@@ -1246,25 +1489,25 @@
             <section class="section" id="research">
                 <div class="section-header reveal">
                     <span class="section-kicker">Research</span>
-                    <h2>Failure modes, model behavior, and simulation.</h2>
-                    <p>These themes are drawn from the existing site content and organized around the research identity already present there.</p>
+                    <h2>Reliable models, optimized decisions, large data.</h2>
+                    <p>My work connects three threads: testing ML software behavior, learning from optimization, and modeling complex systems with large-scale data.</p>
                 </div>
                 <div class="research-grid">
                     <article class="panel research-card reveal">
-                        <h3>Software Reliability</h3>
-                        <p>Testing the reliability of large-scale software systems, with emphasis on reproducing and analyzing bugs generated by mutators.</p>
+                        <h3>ML Framework Reliability</h3>
+                        <p>Studying TensorFlow and PyTorch behavior under edge cases, including operator behavior, errors, CPU/GPU execution, and model outputs.</p>
                     </article>
                     <article class="panel research-card reveal">
-                        <h3>ML Framework Testing</h3>
-                        <p>Studying TensorFlow and PyTorch behavior under edge cases, including operator behavior, error handling, CPU/GPU execution, and model outputs.</p>
+                        <h3>Learning-Augmented Optimization</h3>
+                        <p>Using Gurobi-generated MILP solutions as training targets so neural models can learn from exact optimization and support faster dispatch decisions.</p>
                     </article>
                     <article class="panel research-card reveal">
-                        <h3>Computational Simulation</h3>
-                        <p>Incoming NSF REU work in data-driven computational simulations, including a PyTorch-based ML framework for wind farm artificial intelligence.</p>
+                        <h3>Renewable Energy Dispatch</h3>
+                        <p>Working with hybrid wind farms and energy storage: when to send power to the grid, when to store it, and when to discharge later.</p>
                     </article>
                     <article class="panel research-card reveal">
-                        <h3>Data Systems</h3>
-                        <p>Building full-stack applications, data pipelines, dashboards, and knowledge graphs from large multi-source datasets.</p>
+                        <h3>Graph and Data Systems</h3>
+                        <p>Modeling complex systems with knowledge graphs, large-scale data pipelines, graph algorithms, and AI-assisted prediction.</p>
                     </article>
                 </div>
             </section>
@@ -1273,19 +1516,21 @@
                 <div class="section-header reveal">
                     <span class="section-kicker">Experience</span>
                     <h2>Research and engineering timeline.</h2>
-                    <p>A compact view of the roles and work already listed on the site.</p>
+                    <p>A compact view of the research and engineering roles behind my work in ML systems, optimization, and data.</p>
                 </div>
                 <div class="timeline">
                     <article class="timeline-item reveal">
                         <div class="timeline-node" aria-hidden="true"></div>
                         <div class="panel timeline-card">
                             <div class="timeline-top">
-                                <h3 class="timeline-title">Incoming NSF REU: Data-Driven Computational Simulations</h3>
+                                <h3 class="timeline-title">NSF REU: ML for Hybrid Wind Farms and Energy Storage</h3>
                                 <span class="timeline-meta">Undergraduate Researcher | Vancouver, Washington | 05/2026-08/2026</span>
                             </div>
                             <ul>
-                                <li>Summer 2026 REU focused on data-driven computational simulations.</li>
-                                <li>Work centers on creating a new ML framework built from PyTorch for wind farm artificial intelligence.</li>
+                                <li>Conducted research under Dr. Chris Qin on machine learning approaches for hybrid wind farms integrated with energy storage systems.</li>
+                                <li>Used Gurobi to generate Mixed Integer Linear Programming solutions that served as training targets for a neural network model.</li>
+                                <li>Studied dispatch decisions for sending power to the grid, storing energy, and discharging stored energy later for greater value.</li>
+                                <li>Worked with Mechanical Engineering Ph.D. student Seyedehzeinab “Nora” Hosseiniimeni to better understand battery storage systems.</li>
                             </ul>
                         </div>
                     </article>
@@ -1298,10 +1543,10 @@
                                 <span class="timeline-meta">Undergraduate Researcher | Raleigh, North Carolina | 10/2025-02/2026</span>
                             </div>
                             <ul>
-                                <li>Focused on testing the reliability of large-scale software systems at North Carolina State University.</li>
+                                <li>Focused on testing the reliability of large-scale software systems at North Carolina State University under Prof. Marcelo d’Amorim.</li>
                                 <li>Used fuzzing, mutation testing, and program analysis to reproduce and analyze mutator-generated bugs in TensorFlow and PyTorch.</li>
                                 <li>Compared TensorFlow and PyTorch execution differences across operator behavior, error handling, CPU versus GPU execution, and model outputs.</li>
-                                <li>Collaborated with Ph.D. researchers to document framework-specific behaviors and experimental findings.</li>
+                                <li>Worked with CS Ph.D. students Manideepika Reddy Mayka and Abid Naziri on debugging and evaluating ML systems.</li>
                             </ul>
                         </div>
                     </article>
@@ -1315,10 +1560,10 @@
                             </div>
                             <ul>
                                 <li>Designed and delivered an API backend for client applications.</li>
-                                <li>Developed a full-stack ArborQuest application using USDA and iNaturalist data, integrating Cortex AI to project plant bloom times.</li>
+                                <li>Developed a full-stack ArborQuest application using USDA and iNaturalist data, enabling predictive capabilities such as forecasting bloom times.</li>
                                 <li>Used Snowflake, DBT, SQL, and Python to build and optimize the data pipeline.</li>
                                 <li>Built an interactive Streamlit app and dashboards for client exploration of model outputs.</li>
-                                <li>Constructed a knowledge graph using Louvain community detection, cosine similarity, and Jaccard algorithms.</li>
+                                <li>Experimented with knowledge graphs, community detection, InfoMap, cosine similarity, and Jaccard algorithms to find clusters and relationships in plants.</li>
                                 <li>Developed interactive graph visualizations with the InfoMap algorithm.</li>
                             </ul>
                         </div>
@@ -1345,16 +1590,16 @@
                 <div class="section-header reveal">
                     <span class="section-kicker">Projects</span>
                     <h2>Systems I have built or studied.</h2>
-                    <p>Project framing is based only on the work already described in the original page.</p>
+                        <p>Projects from my research path across reliable ML, renewable dispatch, and large-scale data systems.</p>
                 </div>
                 <div class="project-grid">
                     <article class="panel project-card reveal">
-                        <h3>PyTorch and TensorFlow Reliability Experiments</h3>
-                        <p>Framework behavior analysis using fuzzing, mutation testing, program analysis, and edge-case input stress.</p>
+                        <h3>COVE-DV Renewable Dispatch Model</h3>
+                        <p>A neural model trained from Gurobi/MILP dispatch solutions to improve Cost of Valued Energy for hybrid wind farms with storage.</p>
                     </article>
                     <article class="panel project-card reveal">
-                        <h3>PyTorch-Based Wind Farm AI Framework</h3>
-                        <p>NSF REU work in Summer 2026 centered on a new ML framework for wind farm artificial intelligence.</p>
+                        <h3>PyTorch and TensorFlow Reliability Experiments</h3>
+                        <p>Framework behavior analysis using fuzzing, mutation testing, program analysis, and edge-case input stress.</p>
                     </article>
                     <article class="panel project-card reveal">
                         <h3>ArborQuest</h3>
@@ -1370,7 +1615,7 @@
             <section class="section" id="cv">
                 <div class="section-header reveal">
                     <span class="section-kicker">CV</span>
-                    <h2>Education, skills, and honors.</h2>
+                    <h2>Education, skills, and achievements.</h2>
                     <p>The quick academic snapshot, kept compact for scanning.</p>
                 </div>
                 <div class="split-grid">
@@ -1403,13 +1648,13 @@
                             </article>
                             <article class="panel skill-box reveal">
                                 <h3>Core</h3>
-                                <p>Data Structures & Algorithms, Machine Learning</p>
+                                <p>Data Structures & Algorithms, Machine Learning, Optimization, Renewable Energy Systems</p>
                             </article>
                         </div>
                         <div class="honor-list">
                             <article class="panel honor-card reveal">
-                                <h3>Honors & Affiliations</h3>
-                                <p>AP Scholar with Distinction, International MENSA IQ Society, Dean's List across all semesters, ACM and IEEE memberships.</p>
+                                <h3>Honors & Achievements</h3>
+                                <p>AP Scholar with Distinction, Dean's List across all semesters, International MENSA IQ Society, qualified for Triple Nine Society with a 152 IQ score, and ACM and IEEE memberships.</p>
                             </article>
                             <article class="panel honor-card reveal">
                                 <h3>Additional Roles</h3>
@@ -1417,10 +1662,88 @@
                             </article>
                             <article class="panel output-panel reveal">
                                 <strong>Publications / Manuscripts</strong>
-                                <p>Publications and public manuscripts are not listed on the current site yet. This section is ready for updates when items are available.</p>
+                                <p>None listed yet.</p>
                             </article>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section class="section" id="personal">
+                <div class="section-header reveal">
+                    <span class="section-kicker">About Me</span>
+                    <h2>Discipline outside the lab.</h2>
+                    <p>Training, mountains, friends, and travel are part of the same life that feeds my research: active, disciplined, curious, and hard to keep indoors for too long.</p>
+                </div>
+                <div class="life-story" aria-label="Personal background stories">
+                    <article class="life-topic hiking-topic reveal">
+                        <div class="life-topic-copy">
+                            <span>Wrestling and jiu-jitsu</span>
+                            <h3>Combat sports built the way I work.</h3>
+                            <p>
+                                Wrestling is where I learned discipline in its most practical form: repeat the hard thing, stay calm under pressure, and keep improving even when nobody sees the work. I competed in varsity high school wrestling, club college wrestling, and independent training with C2X, and I still carry that mentality into research.
+                            </p>
+                            <p>
+                                My jiu-jitsu background added another layer. It made me think about leverage, timing, sequences, and constraints, which honestly feels close to how I think through technical systems: understand the structure, stay patient, and solve from the position you are actually in.
+                            </p>
+                        </div>
+                        <div class="life-topic-photos" aria-label="Wrestling photos">
+                            <figure class="life-photo">
+                                <img src="images/life-wrestling-action.jpg" alt="David Valenta wrestling during a match">
+                                <figcaption><span>Wrestling</span>Top control</figcaption>
+                            </figure>
+                            <figure class="life-photo square contain">
+                                <img src="images/life-wrestling-portrait.jpg" alt="David Valenta at a wrestling match">
+                                <figcaption><span>Wrestling</span>Post-match focus</figcaption>
+                            </figure>
+                        </div>
+                    </article>
+
+                    <article class="life-topic reveal">
+                        <div class="life-topic-copy">
+                            <span>Hiking and travel</span>
+                            <h3>Mountains make scale feel real.</h3>
+                            <p>
+                                I like hiking because it gives me a reset from screens while still feeding the same curiosity that brought me into science. I have hiked in the Krkonose Mountains and the Andes, and those trips made climate, terrain, weather, and energy feel less abstract.
+                            </p>
+                            <p>
+                                Being in places like that changes how I think about environmental systems. Distance, altitude, weather, water, and risk are not just variables in a model; they are physical realities that make the problems I care about feel immediate.
+                            </p>
+                        </div>
+                        <div class="life-topic-photos" aria-label="Hiking photos">
+                            <figure class="life-photo feature">
+                                <img src="images/life-andes-hike.jpg" alt="David Valenta hiking in the Andes">
+                                <figcaption><span>Hiking</span>Andes mountain trail</figcaption>
+                            </figure>
+                            <figure class="life-photo square contain">
+                                <img src="images/life-waterfall.jpg" alt="David Valenta standing near a waterfall">
+                                <figcaption><span>Iceland</span>Waterfall route</figcaption>
+                            </figure>
+                        </div>
+                    </article>
+
+                    <article class="life-topic reveal">
+                        <div class="life-topic-copy">
+                            <span>Friends and activity</span>
+                            <h3>I try to keep life active and full.</h3>
+                            <p>
+                                I care a lot about friendships, travel, and staying active outside of school. Research can get intense, so I try to keep my life grounded in people, movement, and experiences that remind me there is more to build than a resume.
+                            </p>
+                            <p>
+                                I like being around people who are ambitious, funny, direct, and willing to push themselves. That social energy helps keep my academic life sustainable: serious work takes endurance, and endurance is easier when life still has momentum.
+                            </p>
+                        </div>
+                        <div class="life-topic-photos" aria-label="Friend photos">
+                            <figure class="life-photo">
+                                <img src="images/life-friends-night.jpg" alt="David Valenta with a friend outdoors at night">
+                                <figcaption><span>Friends</span>Active outside the lab</figcaption>
+                            </figure>
+                            <figure class="life-photo square formal-crop">
+                                <img src="images/life-friends-formal.jpg" alt="David Valenta with a friend at a formal event">
+                                <figcaption><span>Friends</span>Formal night</figcaption>
+                            </figure>
+                        </div>
+                    </article>
                 </div>
             </section>
 
@@ -1428,8 +1751,8 @@
                 <div class="panel contact-card reveal">
                     <div>
                         <span class="section-kicker">Contact</span>
-                        <h2>Let’s talk research, systems, and strange edge cases.</h2>
-                        <p>Reach out for computer science research, software reliability, machine learning framework testing, data systems, or computational simulation work.</p>
+                        <h2>Let’s talk ML systems, optimization, and data.</h2>
+                        <p>Reach out for research on software reliability, learning-augmented optimization, renewable energy dispatch, trustworthy AI systems, or large-scale data.</p>
                     </div>
                     <div class="contact-actions">
                         <a class="button" href="mailto:david.valenta@outlook.com">Email David</a>
@@ -1449,20 +1772,18 @@
         const ctx = canvas.getContext("2d");
         const pointer = { x: -9999, y: -9999, active: false };
         const snippets = [
-            "torch.Tensor",
-            "mutation_test()",
-            "fuzz(input)",
-            "CPU != GPU?",
-            "operator_edge_case",
-            "wind_farm_ai",
+            "MILP",
+            "Gurobi",
+            "COVE-DV",
+            "wind -> grid",
+            "battery_charge",
+            "dispatch(t)",
+            "warm_start",
+            "uncertainty",
+            "PyTorch",
+            "TensorFlow",
             "knowledge_graph",
-            "InfoMap",
-            "Louvain",
-            "Jaccard",
-            "Cortex AI",
-            "Snowflake",
-            "DBT",
-            "FastAPI"
+            "InfoMap"
         ];
         let width = 0;
         let height = 0;
@@ -1475,12 +1796,13 @@
         const neuralMode = document.getElementById("neuralMode");
         const neuralPercent = document.getElementById("neuralPercent");
         const signalModes = [
-            { id: "top", label: "RELIABILITY", status: "probing framework behavior" },
-            { id: "about", label: "RESEARCH CONTEXT", status: "mapping research signals" },
-            { id: "research", label: "ML FRAMEWORKS", status: "activating TensorFlow and PyTorch circuits" },
-            { id: "experience", label: "TIMELINE", status: "tracing research and engineering paths" },
-            { id: "projects", label: "GRAPH SYSTEMS", status: "routing knowledge graph clusters" },
-            { id: "cv", label: "ACADEMIC CORE", status: "indexing education, skills, and honors" },
+            { id: "top", label: "ML SYSTEMS", status: "probing ML systems" },
+            { id: "about", label: "RESEARCH CONTEXT", status: "mapping reliability, optimization, and data" },
+            { id: "research", label: "RELIABLE AI", status: "testing frameworks and optimization signals" },
+            { id: "experience", label: "RESEARCH TIMELINE", status: "tracing software, energy, and graph systems" },
+            { id: "projects", label: "SYSTEMS", status: "routing experiments and graph clusters" },
+            { id: "cv", label: "ACADEMIC CORE", status: "indexing education, skills, and achievements" },
+            { id: "personal", label: "DISCIPLINE", status: "linking training, mountains, friends, and focus" },
             { id: "contact", label: "CONTACT", status: "opening communication channel" }
         ];
         const brainNodes = [
@@ -1548,7 +1870,7 @@
             if (neuralMode) neuralMode.textContent = `MODE: ${mode.label}`;
             if (neuralPercent) neuralPercent.textContent = `SCROLL SIGNAL: ${percent}`;
             if (terminalStatus) terminalStatus.textContent = mode.status;
-            if (terminalScroll) terminalScroll.textContent = `synapses ${percent}`;
+            if (terminalScroll) terminalScroll.textContent = `grid signal ${percent}`;
         }
 
         function queueScrollSignals() {
@@ -1573,7 +1895,7 @@
         }
 
         function seedScene() {
-            const nodeCount = Math.min(74, Math.max(34, Math.floor((width * height) / 23000)));
+            const nodeCount = Math.min(58, Math.max(28, Math.floor((width * height) / 30000)));
             nodes = Array.from({ length: nodeCount }, (_, i) => {
                 const band = i / Math.max(1, nodeCount - 1);
                 const brainBias = Math.sin(band * Math.PI);
@@ -1587,14 +1909,68 @@
                 };
             });
 
-            const dropCount = Math.min(24, Math.max(10, Math.floor(width / 58)));
+            const dropCount = Math.min(16, Math.max(8, Math.floor(width / 86)));
             codeDrops = Array.from({ length: dropCount }, () => ({
                 x: Math.random() * width,
                 y: Math.random() * height,
                 speed: 0.28 + Math.random() * 0.76,
                 text: snippets[Math.floor(Math.random() * snippets.length)],
-                alpha: 0.035 + Math.random() * 0.1
+                alpha: 0.025 + Math.random() * 0.07
             }));
+        }
+
+        function drawEnergyGrid(time) {
+            const progress = scrollState.progress;
+            const pulse = scrollState.pulse;
+            const baseY = height * (0.72 - progress * 0.05);
+            const points = [
+                { x: width * 0.08, y: baseY + Math.sin(time * 0.001) * 8, label: "wind" },
+                { x: width * 0.30, y: baseY - height * 0.08, label: "battery" },
+                { x: width * 0.53, y: baseY + height * 0.015, label: "MILP" },
+                { x: width * 0.75, y: baseY - height * 0.09, label: "neural" },
+                { x: width * 0.93, y: baseY + Math.cos(time * 0.001) * 8, label: "grid" }
+            ];
+
+            ctx.save();
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+            points.forEach((point, index) => {
+                if (index === 0) return;
+                const prev = points[index - 1];
+                const energy = (time * 0.00022 + progress + index * 0.16) % 1;
+                ctx.beginPath();
+                ctx.moveTo(prev.x, prev.y);
+                const midX = (prev.x + point.x) / 2;
+                const midY = (prev.y + point.y) / 2 - height * 0.04;
+                ctx.quadraticCurveTo(midX, midY, point.x, point.y);
+                ctx.strokeStyle = `rgba(119, 247, 161, ${0.08 + pulse * 0.08})`;
+                ctx.lineWidth = 1.1 + pulse * 0.45;
+                ctx.stroke();
+
+                const signalX = prev.x + (point.x - prev.x) * energy;
+                const signalY = prev.y + (point.y - prev.y) * energy - Math.sin(energy * Math.PI) * height * 0.04;
+                ctx.beginPath();
+                ctx.arc(signalX, signalY, 2.2 + pulse * 2.4, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 209, 102, ${0.34 + pulse * 0.2})`;
+                ctx.shadowColor = "rgba(255, 209, 102, 0.5)";
+                ctx.shadowBlur = 12 + pulse * 12;
+                ctx.fill();
+            });
+
+            points.forEach((point, index) => {
+                ctx.shadowBlur = 0;
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, 5 + (index === scrollState.activeIndex % points.length ? 2 : 0), 0, Math.PI * 2);
+                ctx.fillStyle = index % 2 ? "rgba(73, 217, 255, 0.24)" : "rgba(119, 247, 161, 0.25)";
+                ctx.fill();
+                ctx.strokeStyle = "rgba(238, 247, 255, 0.16)";
+                ctx.stroke();
+
+                ctx.fillStyle = "rgba(169, 186, 208, 0.22)";
+                ctx.font = "11px SFMono-Regular, Consolas, monospace";
+                ctx.fillText(point.label, point.x + 9, point.y - 9);
+            });
+            ctx.restore();
         }
 
         function drawBrainPath(time) {
@@ -1694,6 +2070,7 @@
 
         function animate(time) {
             ctx.clearRect(0, 0, width, height);
+            drawEnergyGrid(time);
             drawBrainPath(time);
             const speedBoost = 1 + scrollState.pulse * 2.8;
             const activeBoost = 1 + scrollState.activeIndex * 0.035;
