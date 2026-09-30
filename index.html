@@ -929,6 +929,74 @@
             font-size: 0.95rem;
         }
 
+        .reu-feature {
+            display: grid;
+            gap: 18px;
+            grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+            align-items: stretch;
+        }
+
+        .reu-copy {
+            padding: 28px;
+        }
+
+        .reu-copy p {
+            margin-bottom: 0;
+            color: #d6e6f7;
+            font-size: 1rem;
+        }
+
+        .reu-gallery {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .reu-photo {
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            min-height: 290px;
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            border-radius: 8px;
+            background: rgba(5, 8, 18, 0.84);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+        }
+
+        .reu-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .reu-photo figcaption {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 44px 14px 14px;
+            color: #eef7ff;
+            background: linear-gradient(to top, rgba(2, 4, 10, 0.88), transparent);
+            font-size: 0.82rem;
+            font-weight: 800;
+        }
+
+        .publication-list {
+            display: grid;
+            gap: 10px;
+            margin: 12px 0 0;
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .publication-list li {
+            padding-left: 4px;
+        }
+
+        .publication-list p {
+            margin: 0;
+        }
+
         .timeline {
             position: relative;
             display: grid;
@@ -1216,6 +1284,7 @@
             .about-grid,
             .personal-grid,
             .life-topic,
+            .reu-feature,
             .split-grid,
             .contact-card {
                 grid-template-columns: 1fr;
@@ -1254,9 +1323,14 @@
             .focus-grid,
             .research-grid,
             .project-grid,
+            .reu-gallery,
             .skill-matrix,
             .personal-photo-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .reu-photo {
+                min-height: 250px;
             }
 
             .life-photo,
@@ -1348,6 +1422,7 @@
                 <nav class="nav-links" aria-label="Primary navigation">
                     <a href="#about">About</a>
                     <a href="#research">Research</a>
+                    <a href="#reu">NSF REU</a>
                     <a href="#experience">Experience</a>
                     <a href="#projects">Projects</a>
                     <a href="#cv">CV</a>
@@ -1515,6 +1590,30 @@
                 </div>
             </section>
 
+            <section class="section" id="reu">
+                <div class="section-header reveal">
+                    <span class="section-kicker">NSF REU 2026</span>
+                    <h2>Forecast-aware wind-storage dispatch.</h2>
+                    <p>A summer research experience focused on rolling-horizon optimization for hybrid wind-storage systems.</p>
+                </div>
+                <div class="reu-feature">
+                    <article class="panel reu-copy reveal">
+                        <h3>From forecasts to dispatch decisions</h3>
+                        <p>Under Dr. Chris Qin, I studied forecast-aware rolling-horizon optimization and the effects of horizon length and uncertainty on hybrid wind-storage dispatch. The work examined decisions to send energy to the grid, store it, or discharge it later.</p>
+                    </article>
+                    <div class="reu-gallery">
+                        <figure class="reu-photo reveal">
+                            <img src="images/nsf-reu-showcase-presentation.jpg" alt="David Valenta presenting his wind-storage dispatch research poster" width="800" height="533" loading="lazy">
+                            <figcaption>ENCS Undergraduate Research Showcase 2026</figcaption>
+                        </figure>
+                        <figure class="reu-photo reveal">
+                            <img src="images/nsf-reu-2026-group.jpg" alt="Members of the 2026 NSF REU program gathered for a group photo" width="800" height="533" loading="lazy">
+                            <figcaption>NSF REU 2026</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
             <section class="section" id="experience">
                 <div class="section-header reveal">
                     <span class="section-kicker">Experience</span>
@@ -1667,6 +1766,10 @@
                                 <strong>Publications</strong>
                                 <p>Contributor, ASME Energy Sustainability Conference 2026: wind and storage systems research presentation.</p>
                                 <p><a href="slides/asme-es-2026-wind-storage-presentation.pdf" download>Download ASME ES 2026 slide deck</a></p>
+                                <ol class="publication-list">
+                                    <li><p>David Valenta and Chris Qin, “Forecast-Aware Rolling-Horizon Optimization for Hybrid Wind-Storage Dispatch,” ENCS Undergraduate Research Showcase 2026.</p></li>
+                                    <li><p><strong>D. Valenta</strong>, S. Hosseiniimeni, and C. Qin, “Forecast-aware rolling-horizon dispatch for hybrid wind-storage systems: Horizon and Uncertainty Tradeoffs,” REU Symposium manuscript for the 2026 IEEE International Conference on Big Data, 2026.</p></li>
+                                </ol>
                             </article>
                         </div>
                     </div>
